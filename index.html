@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MK</title>
+    <link rel="shortcut icon" href="img/pbt-white.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/bulma.css">
+    <!-- <link rel="stylesheet" href="css/debug.css"> -->
+    <!-- <link rel="stylesheet" href = "https://www.jsdelivr.com/package/npm/bulma"> -->
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link type="text/css" href="bulma-social.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<style>
+.hero {
+    background: url(img/homepageMK.jpg) center/cover;
+  
+}
+
+@media (max-width: 900px) {
+    .hero {
+        background: url(img/homepageMK.jpg) center/cover;
+       
+    }
+}
+
+@media (max-width: 420px) {
+    .hero {
+        background: url(img/homepageMK-small.jpg) center/cover;
+      
+    }
+    #mkSwitchH1{
+        font-size: small;
+        font-weight: 800;
+    }
+    #mkSwitch{
+        width:50px;
+        height: 50px;
+    }
+}
+
+</style>
+<body>
+
+    <!--.hero-->
+   <section class="hero  is-fullheight">
+       <header>
+            <nav class="navbar is-warning" id="navBoja" role="navigation" aria-label="Main navigation">
+				<div class="container">
+					<div class="navbar-brand is-tablet ">
+						<a href="index.html"><img src="img/pbt-white.png"  id='mkSwitch' width="90" height="20"></a>
+                         <p class="title is-4 navPBrand" style="color:white"  >Mechanical<br>Keyboard</p>
+						<div class="navbar-burger" data-target="navbar">
+							<span style="color:white"></span>
+							<span style="color:white" ></span>
+							<span style="color:white"></span>
+						</div>
+					</div>
+					<div class="navbar-menu navBarAnchor" id="navbar" style="margin-left: 20%;">
+						<div class="navbar-start">
+							<div class="navbar-item has-dropdown is-hoverable" >
+								<a href="products.html" id="allProductsEventLidtenerClick" class="navbar-link aPreventDefault" ><p style="color:white">Products</p></a>
+								<ul class="navbar-dropdown is-boxed ">
+									<a href="products.html" id="KeyboardEventListenerClick" class="navbar-item">Keyboards</a>
+                                    <a href="products.html" id="KeycapsEventListenerClick" class="navbar-item ">Keycaps</a>
+                                    
+									<a href="products.html" id="SwitchesEventListenerClick" class="navbar-item">Switches</a>
+								</ul>
+							</div>
+							<div class="navbar-item has-dropdown is-hoverable " >
+								<a href="contact.html" class="navbar-link aPreventDefault"><p style="">Contact</p></a>
+								<ul class="navbar-dropdown is-boxed" style="">
+									<a href="contact.html" id="bela0" class="navbar-item">Form</a>
+									<a href="contact.html" id="bela1" class="navbar-item">Info</a>
+									
+								</ul>
+                            </div>
+                            <div class="navbar-item AboutHover">
+								<a href="#0"  ><p>About Us</p></a>
+								
+							</div>
+							
+						</div>
+						<div class="navbar-end">
+							<div class="buttons has-addons">
+                                <p id="datum" class="navbar-item has-text-white"></p>    
+                            </div>
+						</div>
+					</div>
+				</div>
+				
+			</nav>
+        </header>
+       
+
+        <main class="hero-body center" style="padding: 2rem;">
+
+        
+            <div id="grid" style="width: 768px;">
+
+                <div id="a" class="center-column has-text-centered subtitle" >
+                    <h2 class="title is-2 white ">SWITCH THE WORLD</h2><br>
+                     <p class='content is-small'>High quality mechanichal keyboard's</p>
+                   
+                </div>
+            
+            </div>
+
+        </main>
+        
+        <!-- https://aldi.github.io/bulma-social/ for favicons -->
+        <div class="hero-foot" id="footerBoja">
+            <div class="is-divider"></div>
+            <nav class="tabs">
+                
+                <div class="container center-column white">
+                    <ul>
+                        <li> 
+                          <span class="icon is-medium">
+                            <i class="fab fa-linkedin"></i>
+                          <span>
+                        </li>
+                        <li>
+                            <span class="icon is-medium ">
+                              <i class="fab fa-github"></i>
+                            </span>
+                        </li>
+                        <li> 
+                            <span class="icon is-medium">
+                            <i class="fas fa-envelope-open"></i>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="icon is-medium">
+                            <i class="fas fa-file-pdf"></i>
+                            </span>
+                        </li>
+                        
+                        <li>
+                            <span class="icon is-medium">
+                                <i class="fas fa-user-shield"></i>
+                                </span>
+                        </li>
+                        <li>
+                            <a id="bulma" href="https://bulma.io">
+                                <!-- <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24"> -->
+                                </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+    </section>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <script src="js/script.js"></script>
+    
+</body>
+
+</html>

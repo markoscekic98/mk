@@ -1,0 +1,146 @@
+[
+    {
+        "product":"keyboard",
+        "id":"kb1",
+        "name" : 60,
+        "formFactor":"small",
+        "numKeys":60,
+        "keycapMaterial" : "PBT",
+        "backlit" :"Yes",
+        "RGB" : "checked",
+        "pic":"img/keyboards/60.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb2",
+        "name" : 65,
+        "formFactor" : "small",
+        "numKeys": 65,
+        "keycapMaterial" : "PBT",
+        "backlit" :"Yes",
+        "RGB" : "checked",
+        "pic":"img/keyboards/65.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb3",
+        "name" : 87,
+        "formFactor" : "TKL",
+        "numKeys": 60,
+        "keycapMaterial" : "PBT",
+        "backlit" : "Yes",
+        "RGB" : "checked",
+        "pic":"img/keyboards/87.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb4",
+        "name" : 104,
+        "formFactor" : "Full-size",
+        "numKeys": 60,
+        "keycapMaterial" : "PBT",
+        "backlit" :"Yes",
+        "RGB" : "checked",
+        "pic":"img/keyboards/104.png"
+    },
+    {   
+        "product":"keycaps",
+        "id":"cap1",
+        "color":"black",
+        "name":"Black",
+        "material":"pbt",
+        "double-shot":"checked",
+        "pic":"img/keycaps/black.png"
+    },
+    {   
+        "product":"keycaps",
+        "id":"cap2",
+        "color":"grey",
+        "name":"Grey", 
+        "material":"pbt", 
+        "double-shot":"checked",
+        "pic":"img/keycaps/grey.png"
+    },
+    {
+        "product":"keycaps",
+        "id":"cap3",
+        "color":"white",
+        "name":"White",   
+        "material":"pbt", 
+        "double-shot":"checked",
+        "pic":"img/keycaps/white.png"
+    },
+    {
+        "product":"keycaps",
+        "id":"cap4",
+        "color":"brown", 
+        "name":"Brown", 
+        "material":"pbt", 
+        "double-shot":"uncheck",
+        "pic":"img/keycaps/brown.png"
+    },
+    {
+        "product":"keycaps",
+        "id":"cap5",
+        "color":"blue",
+        "name":"Blue", 
+        "material":"pbt", 
+        "pic":"img/keycaps/blue.png"
+    },
+    {
+        "product":"keycaps",
+        "id":"cap6",
+        "color":"pink", 
+        "name" :"Pink", 
+        "material":"pbt", 
+        "double-shot":"checked",
+        "pic":"img/keycaps/pink.png"
+    },
+    {
+        "product":"keycaps",
+        "id":"cap7",
+        "color":"orange", 
+        "name" :"Orange", 
+        "material":"pbt", 
+        "double-shot":"checked",
+        "pic":"img/keycaps/orange.png"
+    },
+    {
+        "product":"keycaps",
+        "id":"cap8",
+        "color":"colorful", 
+        "name" :"Colorful", 
+        "material":"pbt", 
+        "double-shot":"checked",
+        "pic":"img/keycaps/colorful.png"
+    },
+  
+    {
+        "product":"other",
+        "id":"ot1",
+        "name":"Blue switch",
+        "description":"Clicky | 4.0mm travel | 60g Actuation",
+        "pic":"img/blue.jpg"
+    },
+    {
+        "product":"other",
+        "id":"ot2",
+        "name":"Brown switch",
+        "description":"Tactile | 4.0mm travel | 55g Actuation",
+        "pic":"img/brown.jpg"
+    },
+    {
+        "product":"other",
+        "id":"ot3",
+        "name":"Black switch",
+        "description":"Linear | 4.0mm travel | 60g Actuation",
+        "pic":"img/black.jpg"
+    },
+    {
+        "product":"other",
+        "id":"ot4",
+        "name":"Red switch",
+        "description":"Linear | 4.0mm travel | 45g Actuation",
+        "pic":"img/red.jpg"
+    }
+]

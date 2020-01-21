@@ -1,0 +1,33 @@
+.center, .center-column, .top, .right, .bottom, .left{
+    display: flex;
+/*    flex-direction: row; //by default */ 
+    justify-content: center;
+    align-items: center;
+}
+
+.center-column {
+    flex-direction: column;
+}
+
+.top     {align-items: flex-start;}
+.right   {justify-content: flex-end;}
+.bottom  {align-items: flex-end;}
+.left    {justify-content: flex-start;}
+
+.single-spaced, .single-spaced * {
+    line-height: 1;
+}
+
+@media (max-width: 1024px) {
+    .desktop{
+        display: none;
+    }
+}
+
+.tesla-logo{
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTMiPiAgPGcgZmlsbD0iI0ZGRiI+ICAgIDxwYXRoIGQ9Ik0wIDBjLjMgMS4xIDEuMyAyLjMgMi42IDIuNmg0LjFsLjIuMVYxM2gyLjVWMi43bC4yLS4xaDQuMWMxLjQtLjQgMi4zLTEuNSAyLjYtMi42SDB6TTc3LjggMTNjMS4zLS41IDItMS41IDIuMi0yLjZINjguN1YtLjFoLTIuNXYxM2gxMS42ek00Ny4zIDIuNmg5YzEuMy0uNCAyLjUtMS40IDIuNy0yLjZINDQuOHY3LjdoMTEuNnYyLjdoLTkuMWMtMS40LjQtMi42IDEuNC0zLjIgMi42SDU5VjUuMkg0Ny4zVjIuNnpNODUuNCA1LjJWMTNIODhWNy44aDkuMVYxM2gyLjZWNS4yTTI1LjIgMi42aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjIgMS40IDIuMyAyLjcgMi42TTI1LjIgNy44aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjEgMS40IDIuMyAyLjcgMi42TTI1LjIgMTNoOS43YzEuMy0uMyAyLjQtMS41IDIuNi0yLjZoLTE1Yy40IDEuMiAxLjQgMi40IDIuNyAyLjZNODcuNyAyLjZoOS43YzEuMy0uMyAyLjQtMS41IDIuNi0yLjZIODVjLjMgMS4yIDEuMyAyLjQgMi43IDIuNiIvPiAgPC9nPjwvc3ZnPg==");
+    background-repeat: no-repeat;
+    background-size: 140px 30px;
+    height: 100%;
+    width: 100%;
+}

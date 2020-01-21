@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MK</title>
+    <!-- <link rel="shortcut icon" href="img/pbt-white.png" type="image/x-icon" /> -->
+    <link rel="stylesheet" href="css/bulma.css">
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/debug.css"> -->
+    <!-- <link rel="stylesheet" href = "https://www.jsdelivr.com/package/npm/bulma">
+    <link rel="stylesheet" type="text/css" href="bulma-social.min.css">  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    
+
+    
+</head>
+<style>
+  .hero {
+      background: url(img/homepageMK.jpg) center/cover;
+    
+  }
+  
+  @media (max-width: 900px) {
+      .hero {
+          background: url(img/homepageMK.jpg) center/cover;
+         
+      }
+  }
+  
+  @media (max-width: 420px) {
+      .hero {
+          background: url(img/homepageMK-small.jpg) center/cover;
+        
+      }
+  }
+  
+  </style>
+<body>
+
+    <!--.hero-->
+   <section class="hero  is-fullheight">
+       <header>
+            <nav class="navbar is-warning" id="navBoja" role="navigation" aria-label="Main navigation">
+				<div class="container">
+					<div class="navbar-brand is-tablet ">
+						<a href="index.html"><img src="img/pbt-white.png"  id='mkSwitch' width="90" height="20"></a>
+                         <p class="title is-4 navPBrand" style="color:white"  >Mechanical<br>Keyboard</p>
+						<div class="navbar-burger" data-target="navbar">
+							<span style="color:white"></span>
+							<span style="color:white" ></span>
+							<span style="color:white"></span>
+						</div>
+					</div>
+					<div class="navbar-menu navBarAnchor" id="navbar" style="margin-left: 20%;">
+						<div class="navbar-start">
+							<div class="navbar-item has-dropdown is-hoverable" >
+								<a href="products.html" id="allProductsEventLidtenerClick" class="navbar-link aPreventDefault" ><p style="color:white">Products</p></a>
+								<ul class="navbar-dropdown is-boxed ">
+									<a href="products.html" id="KeyboardEventListenerClick" class="navbar-item">Keyboards</a>
+                                    <a href="products.html" id="KeycapsEventListenerClick" class="navbar-item ">Keycaps</a>
+                                    
+									<a href="products.html" id="SwitchesEventListenerClick" class="navbar-item">Switches</a>
+								</ul>
+							</div>
+							<div class="navbar-item has-dropdown is-hoverable " >
+								<a href="contact.html" class="navbar-link aPreventDefault"><p style="">Contact</p></a>
+								<ul class="navbar-dropdown is-boxed" style="">
+									<a href="contact.html" id="bela0" class="navbar-item">Form</a>
+									<a href="contact.html" id="bela1" class="navbar-item">Info</a>
+									
+								</ul>
+                            </div>
+                            <div class="navbar-item AboutHover">
+								<a href="#0"  ><p>About Us</p></a>
+								
+							</div>
+							
+						</div>
+						<div class="navbar-end">
+							<div class="buttons has-addons">
+                                <p id="datum" class="navbar-item has-text-white"></p>    
+                            </div>
+						</div>
+					</div>
+				</div>
+				
+			</nav>
+        </header>
+
+
+        <main  class="hero-foot  center is-desktop"  style="padding: 2rem;">
+         <main  class="hero-foot is-mobile-only"   style="max-width:99%;">
+         
+            <div class="column abcd">
+              <div class="center-column has-text-centered subtitle" >
+                <h2 class="title is-2 white ">Contact Form</h2>
+                 <p class='content is-small'>If you have any questions, please feel free to contact us. Thank you.</p>
+              </div>
+                <form method="post">
+                    
+                        <div class="field">
+                        <label class="label has-text-white">First Name</label>
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input is-medium"  id="fname" type="text" placeholder="Text input" value="">
+                          <!-- class="input is-danger" -->
+                          <span class="icon is-small is-left has-text-grey">
+                            <i class="fas fa-user"></i>
+                          </span>
+                          <!-- <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                          </span> -->
+                        </div>
+                        <p class="help is-danger" id="fnameError"></p>
+                      </div>
+                      <div class="field">
+                        <label class="label has-text-white">Last Name</label>
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input is-medium"  id="lname" type="text" placeholder="Text input" value="">
+                          <!-- class="input is-danger" -->
+                          <span class="icon is-small is-left has-text-grey">
+                            <i class="fas fa-user"></i>
+                          </span>
+                          <!-- <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                          </span> -->
+                        </div>
+                        <p class="help is-danger" id="lnameError"></p>
+                      </div>
+                    
+                      <div class="field">
+                        <label class="label has-text-white">Zip (5 digit)</label>
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input is-medium" id="zip" type="text" placeholder="Text input" value="">
+                          <!-- class="input is-danger" -->
+                          <span class="icon is-small is-left has-text-grey">
+                            <i class="fa fa-map" aria-hidden="true"></i>
+                          </span>
+                          <!-- <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                          </span> -->
+                        </div>
+                        <p class="help is-danger" id="zipError">greska</p>
+                      </div>
+                      
+                      <div class="field">
+                        <label class="label has-text-white">Email</label>
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input is-medium" id="email" type="email" placeholder="Email input" value="">
+                          <!-- class="input is-danger" -->
+                          <span class="icon is-small is-left has-text-grey">
+                            <i class="fas fa-envelope"></i>
+                          </span>
+                          <span class="icon is-small is-right">
+                            <!-- <i class="fas fa-exclamation-triangle emailError"></i> -->
+                          </span>
+                        </div>
+                        <p class="help is-danger" id="emailError"></p>
+                      </div>
+
+                      <div class="field">
+                        <label class="label has-text-white">Password</label>
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input is-medium" id="pass" type="password" placeholder="Text input" value="">
+                          <!-- class="input is-danger" -->
+                          <span class="icon is-small is-left has-text-grey">
+                            <i class="fas fa-lock"></i>
+                          </span>
+                          <!-- <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                          </span> -->
+                        </div>
+                        <p class="help is-danger" id="passError"></p>
+                      </div>
+
+                      <div class="field">
+                        <div class="control center-column">
+                          <input type="submit" class="button" id="submitInfo"  is-info" value="Submit">
+                          <!-- <button class="button is-link">Help</button> -->
+                        </div>
+                        
+                      </div>
+                 </form>
+            </div>
+            <hr class="devider" style="background: linear-gradient(90deg, rgba(0,212,255,0.6110644086990165) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,0.61) 100%);">
+            <div class="column abcd" style="margin-top:5%">
+              <div id="a" class="center-column has-text-centered subtitle" >
+                <h2 class="title is-2 white">MK International Co., Ltd</h2> <br>
+              </div>
+              <ul>
+                <li style="padding: 0.75rem;">
+                  <p><i class="fas fa-building "></i><span class="has-text-weight-bold">  Head Office</span>:  No.381, Yangguang St., Taipei City, Taiwan </p>
+                </li>  
+                <li style="padding: 0.75rem;"> 
+                  <p> <i class="fas fa-wrench"></i><span class="has-text-weight-bold">  Maintance Departmen</span>: No.381, Yangguang St., Taipei City, Taiwan </p> 
+                </li>
+                <li style="padding: 0.75rem;">
+                  <p> <i class="fa fa-envelope"></i><span class="has-text-weight-bold">  Mailbox</span>:  support@mkchannel.com</p> 
+                </li>
+                <li style="padding: 0.75rem;"> 
+                  <p><i class="fa fa-phone-square is-danger"></i><span class="has-text-weight-bold">  Phone</span>: +886-2-2797-7288 </p> 
+                </li>
+              </ul>
+            </div>
+           </main>
+          </main>
+
+        <!-- https://aldi.github.io/bulma-social/ for favicons -->
+        <div class="hero-foot" id="footerBoja">
+            <nav class="tabs">
+                <div class="container center-column white">
+                    <ul>
+                        <li> 
+                          <span class="icon is-medium">
+                            <i class="fab fa-linkedin"></i>
+                          <span>
+                        </li>
+                        <li>
+                            <span class="icon is-medium">
+                              <i class="fab fa-github"></i>
+                            </span>
+                        </li>
+                        <li> 
+                            <span class="icon is-medium">
+                            <i class="fas fa-envelope-open"></i>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="icon is-medium">
+                            <i class="fas fa-file-pdf"></i>
+                            </span>
+                        </li>
+                        <li>
+                          <a id="bulma" href="https://bulma.io">
+                              <!-- <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24"> -->
+                              </a>
+                      </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <script  src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
