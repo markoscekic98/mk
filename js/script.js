@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(document).ready( () => {
 ////////////template js(for burger menu in navbar)\\\\\\\\\\\\\\\\
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);  // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {  // Add a click event on each of them
@@ -29,7 +29,7 @@ $(document).ready(() => {
   let count = 0;
   var datumIspis = document.querySelector('#datum');
 
-  datumIspis.addEventListener('click', () => console.log(`Clicked ${count++} times`));
+ // datumIspis.addEventListener('click', () => console.log(`Clicked ${count++} times`));
 
 
   function datumFun() {
@@ -58,14 +58,9 @@ $(document).ready(() => {
   }
   
 
-  document.querySelector('#allProductsEventLidtenerClick').addEventListener('click', (e) => {
-    if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
-      e.preventDefault();
-      console.log("kliknut je")
-    }
     // $('.hero').css('background', 'url(img/20190710174100lk3xyiMgX1.jpg) center/cover');
     // console.log("kliknut je");
-  });
+  
 
   $.getJSON('https://api.ipify.org?format=jsonp&callback=?', data => {
     let l = JSON.stringify(data).split(':');
@@ -95,22 +90,48 @@ $(document).ready(() => {
   }); //ajax
 
   function product(products) {
+/////////// A L L \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+
+  if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html'){
+    //pp.preventDefault();
+  
+  var allProducts = products;
+  console.log(typeof allProducts);
+  var htmlAjax = `<div class="columns is-multiline is-centered">`;
+  allProducts.forEach(p =>{
+    htmlAjax +=`
+    <div class="column is-half is-centered" style="padding:2rem;">
+        <figure class="image">
+             <img src="${p.pic}">
+        </figure>
+        <article class="tile is-child notification is-info">
+          <p class="is-5">Category: ${p.product}</p>
+          <p class="is-5">Product: ${p.name}</p>
+          <p class="is-5">Color: ${p.color}</p>
+        </article>
+    </div>  
+    `;
+  });
+  htmlAjax += `</div>`;
+  document.querySelector("#keyboardHtml").innerHTML = htmlAjax;
+  }
     ////////////// K E Y B O A R D S \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-    document.querySelector('#KeyboardEventListenerClick').addEventListener('click', (kb) => {
+    document.querySelector('#KeyboardEventListenerClick').addEventListener('click', kb => {
       if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
         kb.preventDefault();
       }
 
       var keyboards = products.filter(kb => kb.product === "keyboard");
       var htmlAjax = " ";
-      keyboards.forEach(p => {
+    keyboards.sort((a,b)=> a.numKeys -b.numKeys);
+     keyboards.forEach(p => {
         htmlAjax +=
-          ` <div class="tiles">
-              <div class="tile is-12">
-                <div class="tile is-parent is-8">
+          `  <div class="tiles" >
+              <div class="tile is-13 keyboardPositioning">
+                <div class="tile is-parent is-6">
                   <article class="tile is-child notification is-dark">
                     <p class="title is-3 center">${p.name}</p>
                     <figure class="image ">
@@ -125,10 +146,10 @@ $(document).ready(() => {
                    <li> <p class="title">Name: <span class="has-text-grey-light">${p.name}<span></p> </li>
                 </ul>
                 <ul>
-                    <li> <p class="title">Form-factor: <span class="has-text-grey-light"> ${p.formFactor}<span></p> </li>
+                    <li> <p class="title">Color: <span class="has-text-grey-light"> ${p.color}<span></p> </li>
                 </ul>
                 <ul>
-                   <li> <p class="title">Keycap material: <span class="has-text-grey-light"> ${p.keycapMaterial}<span></p> </li>
+                   <li> <p class="title">Number of keys: <span class="has-text-grey-light"> ${p.numKeys}<span></p> </li>
                 </ul>
                 <br>
                 <button class="button is-dark">Add to cart</button>
@@ -203,7 +224,7 @@ $(document).ready(() => {
         $('.hero').css('background', 'url(img/20190710174100lk3xyiMgX1.jpg) center/cover');
         // document.querySelector('.hero').style.background="url(img/201905171052391l9h5l0oE1.jpg) center/cover;";
       }
-      var switches = products.filter(mx => mx.product === "other");
+      var switches = products.filter(mx => mx.product === "switches");
       var htmlAjax = " ";
       switches.forEach(p => {
         htmlAjax +=
@@ -256,11 +277,13 @@ $(document).ready(() => {
          var fname = document.querySelector('#fname').value.trim();
          var fnameError = document.querySelector('#fnameError');
          var reExName = /^[A-Z]{1}[a-z]{1,13}$/;
-         if (fname.length < 1) {
+         if (fname.length < 2) {
            fnameError.innerHTML = `Please enter your first name`;
+           validation = false;
          }
          if (!reExName.test(fname)) {
           fnameError.innerHTML = `Please enter your first name correctly`;
+          validation = false;
         }
          data.push(fname);
           document.cookie = `First name = ${fname}`;
@@ -272,10 +295,11 @@ $(document).ready(() => {
      var lnameError = document.querySelector('#lnameError');
      if(lname.length<1){
        lnameError.innerHTML =`Please enter your last name corretly`;
+       validation = false;
      }
      if (!reExName.test(lname)) {
       lnameError.innerHTML = `Please enter your last name correctly`;
-  
+      validation = false;
      }
      data.push(lname);
      document.cookie = `Last name = ${lname}`;
@@ -286,7 +310,7 @@ $(document).ready(() => {
       var zipError = document.querySelector('#zipError');
       if(zip<10000 || zip>99999){
         zipError.innerHTML = `Please enter correct zip code (10 000 - 99 999)`;
-      
+        validation = false;
       }
       data.push(zip);
       document.cookie = `Zip Code = ${zip}`;
@@ -298,9 +322,11 @@ $(document).ready(() => {
       var reExEmail = /^[a-z0-9._%+]+@[a-z0-7.]+\.[a-z]{2,4}$/;
       if(em.length<1){
         emError.innerHTML =`Please enter your email address`;
+        validation = false;
       }
       if(!reExEmail.test(em)){
         emError.innerHTML = `Please enter valid email address`;
+        validation = false;
       }
       data.push(em);
       document.cookie  = `Email = ${em}`;
@@ -310,12 +336,15 @@ $(document).ready(() => {
       var reExPass = /^[a-z0-9]{5,20}$/;
       if(!reExPass.test(pass)){
         passError.innerHTML = `Please enter alfanumeric only password between 5 and 20 character length`;
+        validation = false;
       }
-      data.push(pass);
-      document.cookie= `Enigma = ${pass}`;
+      let enigma = CryptoJS.AES.encrypt(pass, '11231').toString();
+      data.push(enigma);
+      document.cookie= `Password = ${enigma}`;
 
 
-     if(data.length>2){
+     if(data.length>2 && validation){
+       console.log(data);
        alert("Successful login, thank you");
      } 
     });

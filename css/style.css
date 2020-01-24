@@ -4,21 +4,38 @@
   
 }
 
-
+.keyboardPositioning{
+    margin-left:12%;
+   }
 @media (max-width: 900px) {
     .hero {
         background: url(img/homepageMK.jpg) center/cover;
        
     }
-   
+   .keyboardPositioning{
+    margin-left:12%;
+   }
    
 }
-
+@media (max-width: 800px) {
+    .hero {
+        background: url(img/homepageMK.jpg) center/cover;
+       
+    }
+   .keyboardPositioning{
+    margin-left:8%;
+   }
+   
+}
 @media (max-width: 420px) {
     .hero {
         background: url(img/homepageMK-small.jpg) center/cover;
       
     }
+
+    .keyboardPositioning{
+        margin-left:0%;
+       }
    
 }
 /* .navbar-center {

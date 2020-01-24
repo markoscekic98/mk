@@ -2,52 +2,129 @@
     {
         "product":"keyboard",
         "id":"kb1",
-        "name" : 60,
-        "formFactor":"small",
-        "numKeys":60,
-        "keycapMaterial" : "PBT",
-        "backlit" :"Yes",
-        "RGB" : "checked",
+        "name" : "60% Black",
+        "numKeys":61,
+        "color": "Black",
         "pic":"img/keyboards/60.png"
     },
     {
         "product":"keyboard",
         "id":"kb2",
-        "name" : 65,
-        "formFactor" : "small",
-        "numKeys": 65,
-        "keycapMaterial" : "PBT",
-        "backlit" :"Yes",
-        "RGB" : "checked",
+        "name" : "65% Black",
+        "numKeys": 70,
+        "color": "Black",
         "pic":"img/keyboards/65.png"
     },
     {
         "product":"keyboard",
         "id":"kb3",
-        "name" : 87,
-        "formFactor" : "TKL",
-        "numKeys": 60,
-        "keycapMaterial" : "PBT",
-        "backlit" : "Yes",
-        "RGB" : "checked",
+        "name" : "80% Black",
+        "numKeys": 87,
+        "color": "Black",
         "pic":"img/keyboards/87.png"
     },
     {
         "product":"keyboard",
         "id":"kb4",
-        "name" : 104,
-        "formFactor" : "Full-size",
-        "numKeys": 60,
-        "keycapMaterial" : "PBT",
-        "backlit" :"Yes",
-        "RGB" : "checked",
+        "name" : "100% Black",
+        "numKeys":104,
+        "color": "Black",
         "pic":"img/keyboards/104.png"
     },
+    {
+        "product":"keyboard",
+        "id":"kb5",
+        "name" : "60% White",
+        "numKeys":61,
+        "color": "White",
+        "pic":"img/keyboards/60White.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb6",
+        "name" : "60% Mint",
+        "numKeys":61,
+        "color": "Mint",
+        "pic":"img/keyboards/60Mint.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb7",
+        "name" : "65% Red",
+        "numKeys":70,
+        "color": "Red",
+        "pic":"img/keyboards/65Red-PigEdition.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb8",
+        "name" : "80% Grey",
+        "numKeys":87,
+        "color": "Grey",
+        "pic":"img/keyboards/80Grey.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb9",
+        "name" : "100% Brown",
+        "numKeys":104,
+        "color": "Brown",
+        "pic":"img/keyboards/100Brown.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb10",
+        "name" : "100% Grey",
+        "numKeys":104,
+        "color": "Grey",
+        "pic":"img/keyboards/100Grey.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb11",
+        "name" : "100% Pink",
+        "numKeys":104,
+        "color": "Pink",
+        "pic":"img/keyboards/100Pink.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb12",
+        "name" : "100% White",
+        "numKeys":104,
+        "color": "White",
+        "pic":"img/keyboards/100White.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb13",
+        "name" : "100% Yellow",
+        "numKeys":104,
+        "color": "White",
+        "pic":"img/keyboards/100Yellow.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb14",
+        "name" : "75% Black",
+        "numKeys":82,
+        "color": "Black",
+        "pic":"img/keyboards/75.png"
+    },
+    {
+        "product":"keyboard",
+        "id":"kb15",
+        "name" : "75% White",
+        "numKeys":82,
+        "color": "Black",
+        "pic":"img/keyboards/75White.jpg"
+    },
+
     {   
         "product":"keycaps",
         "id":"cap1",
-        "color":"black",
-        "name":"Black",
+        "color":"Black",
+        "name":"Keycaps black",
         "material":"pbt",
         "double-shot":"checked",
         "pic":"img/keycaps/black.png"
@@ -55,8 +132,8 @@
     {   
         "product":"keycaps",
         "id":"cap2",
-        "color":"grey",
-        "name":"Grey", 
+        "color":"Grey",
+        "name":"Keycaps grey", 
         "material":"pbt", 
         "double-shot":"checked",
         "pic":"img/keycaps/grey.png"
@@ -64,8 +141,8 @@
     {
         "product":"keycaps",
         "id":"cap3",
-        "color":"white",
-        "name":"White",   
+        "color":"White",
+        "name":"Keycaps white",   
         "material":"pbt", 
         "double-shot":"checked",
         "pic":"img/keycaps/white.png"
@@ -73,8 +150,8 @@
     {
         "product":"keycaps",
         "id":"cap4",
-        "color":"brown", 
-        "name":"Brown", 
+        "color":"Brown", 
+        "name":"Keycaps brown", 
         "material":"pbt", 
         "double-shot":"uncheck",
         "pic":"img/keycaps/brown.png"
@@ -82,16 +159,16 @@
     {
         "product":"keycaps",
         "id":"cap5",
-        "color":"blue",
-        "name":"Blue", 
+        "color":"Blue",
+        "name":"Keycaps blue", 
         "material":"pbt", 
         "pic":"img/keycaps/blue.png"
     },
     {
         "product":"keycaps",
         "id":"cap6",
-        "color":"pink", 
-        "name" :"Pink", 
+        "color":"Pink", 
+        "name" :"Keycaps pink", 
         "material":"pbt", 
         "double-shot":"checked",
         "pic":"img/keycaps/pink.png"
@@ -99,8 +176,8 @@
     {
         "product":"keycaps",
         "id":"cap7",
-        "color":"orange", 
-        "name" :"Orange", 
+        "color":"Orange", 
+        "name" :"Keycaps orange", 
         "material":"pbt", 
         "double-shot":"checked",
         "pic":"img/keycaps/orange.png"
@@ -108,38 +185,43 @@
     {
         "product":"keycaps",
         "id":"cap8",
-        "color":"colorful", 
-        "name" :"Colorful", 
+        "color":"Colorful", 
+        "name" :"Keycaps colorful", 
         "material":"pbt", 
         "double-shot":"checked",
         "pic":"img/keycaps/colorful.png"
     },
   
     {
-        "product":"other",
-        "id":"ot1",
+        "product":"switches",
+        "id":"mx1",
         "name":"Blue switch",
+        "color":"Blue",
         "description":"Clicky | 4.0mm travel | 60g Actuation",
         "pic":"img/blue.jpg"
     },
     {
-        "product":"other",
-        "id":"ot2",
+        "product":"switches",
+        "id":"mx2",
         "name":"Brown switch",
+        "color":"Brown",
         "description":"Tactile | 4.0mm travel | 55g Actuation",
         "pic":"img/brown.jpg"
     },
     {
-        "product":"other",
-        "id":"ot3",
+        "product":"switches",
+        "id":"mx3",
         "name":"Black switch",
+        "color":"Black",
         "description":"Linear | 4.0mm travel | 60g Actuation",
         "pic":"img/black.jpg"
     },
+    
     {
-        "product":"other",
-        "id":"ot4",
+        "product":"switches",
+        "id":"mx4",
         "name":"Red switch",
+        "color":"Red",
         "description":"Linear | 4.0mm travel | 45g Actuation",
         "pic":"img/red.jpg"
     }
