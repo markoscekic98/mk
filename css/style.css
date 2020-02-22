@@ -38,13 +38,6 @@
        }
    
 }
-/* .navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items:  center;
-} */
  .abcd{
      background-color:  rgba(0, 0, 0, 0.315);
 } 
@@ -62,10 +55,13 @@
 .tilesColor{
     background-color: rgb(0, 0, 0);
 } */
-.AboutHover:hover{
+.AboutHover:hover, .AboutHover p:hover {
     background-color:#ffd83d;
     border-radius: 5px;
+    color:grey;
+    font-weight: 600;
 }
+
 .aPreventDefault{
     border-radius: 15px;
 }
@@ -97,7 +93,8 @@ body p,h2, .white{
     margin-bottom: 1rem;
 }
 #bigKeyboardFirst{
-    padding-left:25px;padding-right: 25px;
+    padding-left:25px;
+    padding-right: 25px;
 }
 
 

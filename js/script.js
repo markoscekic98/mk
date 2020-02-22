@@ -5,7 +5,7 @@ $(document).ready(() => {
   if ($navbarBurgers.length > 0) { // Add a click event on each of them
     $navbarBurgers.forEach($el => {
       $el.addEventListener('click', () => {
-        $('.navBarAnchor').css('margin-right', '0px');
+        $('.navBarAnchor').css({'margin-right': '0px', 'margin-bottom': '1.5rem'});
         $('.navbar-start p').css('color', 'silver');
         $('#datum').css('color', 'silver');
         // Get the target from the "data-target" attribute
@@ -20,12 +20,10 @@ $(document).ready(() => {
   }
   ////////////////  End of template js \\\\\\\\\\\\\\\\\\  
   document.querySelector('.navbar-burger').addEventListener('click', () => {
-    // document.getElementById('navbar').style.backgroundColor = 'rgba(5, 5, 5, 0.4)';
     document.getElementById('navbar').style.backgroundColor = 'rgba(223, 223, 223, 0.4)'; //'rgba(5, 5, 5, 0.4)';
-    let arrColor = ['KeyboardEventListenerClick', 'KeycapsEventListenerClick', 'SwitchesEventListenerClick', 'bela0', 'bela1'];
-    for (let ii in arrColor) {
-      document.querySelector(`#${arrColor[ii]}`).style.color = '#272727';
-    }
+    $('.burgerColor').css('color','#272727');
+    
+  
   });
   let count = 0;
   var datumIspis = document.querySelector('#datum');
@@ -76,12 +74,12 @@ $(document).ready(() => {
 
       //// /////////////////////  C O L O R \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-      let color = document.getElementById('clickSelectColor');
+      var color = document.getElementById('clickSelectColor');
       document.getElementById('clickSelectColor').addEventListener('click', () => {
         
         // e.options[e.selectedIndex].value;
         var selectColor = color.options[color.selectedIndex].value;
-        if(selectColor.length){
+        if(selectColor.length>1){
           let keyboardColor = keyboards.filter((kbCol) => kbCol.color === selectColor);
           funKeyboardsHtmlDynamic(keyboardColor);
         }
