@@ -61,7 +61,7 @@ $(document).ready(() => {
 
     function product(products) {
 
-      var keyboards = products.filter(kb => kb.product === "keyboard");
+      const keyboards = products.filter(kb => kb.product === "keyboard");
       document.getElementById('bigKeyboardFirst').addEventListener('click', () => {
         var bigKeyboardFirst = keyboards.sort((a, b) => b.numKeys - a.numKeys);
         console.log("velike");
@@ -76,22 +76,23 @@ $(document).ready(() => {
 
       //// /////////////////////  C O L O R \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-      var color = document.getElementById('clickSelectColor');
+      let color = document.getElementById('clickSelectColor');
       document.getElementById('clickSelectColor').addEventListener('click', () => {
+        
         // e.options[e.selectedIndex].value;
-        let selectColor = color.options[color.selectedIndex].value;
-        if (selectColor != 0) {
-          console.log("izabrana boja boju");
+        var selectColor = color.options[color.selectedIndex].value;
+        if(selectColor.length){
           let keyboardColor = keyboards.filter((kbCol) => kbCol.color === selectColor);
-          console.log(keyboardColor);
           funKeyboardsHtmlDynamic(keyboardColor);
         }
-
-        funKeyboardsHtmlDynamic(keyboards);
-
+        else{
+          funKeyboardsHtmlDynamic(keyboards);
+        }
+        
+       
       });
-
       funKeyboardsHtmlDynamic(keyboards);
+     // funKeyboardsHtmlDynamic(keyboards);
       //}); //eventListner
       function funKeyboardsHtmlDynamic(data) {
         var htmlAjax = " ";
