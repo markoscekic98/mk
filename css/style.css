@@ -56,8 +56,18 @@
  margin-top:17px;
  margin-left:15px;
 }
+/* .tilesColor{
+    background-color: red;
+}
+.tilesColor{
+    background-color: rgb(0, 0, 0);
+} */
 .AboutHover:hover{
-    background-color:#ffdd57;
+    background-color:#ffd83d;
+    border-radius: 5px;
+}
+.aPreventDefault{
+    border-radius: 15px;
 }
 #navBoja{
     background: rgb(0,0,0);
@@ -76,8 +86,19 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 35%);
 body p,h2, .white{
     color:white;
 }
-
-
+#wrapper{
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+#colorFilterDiv{
+    border:2px solid red;
+}
+.navbarSort{
+    margin-bottom: 1rem;
+}
+#bigKeyboardFirst{
+    padding-left:25px;padding-right: 25px;
+}
 
 
 

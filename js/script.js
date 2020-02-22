@@ -1,4 +1,5 @@
 $(document).ready( () => {
+  datumFun();
 ////////////template js(for burger menu in navbar)\\\\\\\\\\\\\\\\
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);  // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {  // Add a click event on each of them
@@ -34,51 +35,20 @@ $(document).ready( () => {
 
   function datumFun() {
     let datum = new Date();
-    // let dan = datum.getDate();
-    // let mesec = datum.getMonth()+1;
-    // let godina = datum.getFullYear();
     var datCeo = `${datum.getDate()}.${datum.getMonth()+1}.${datum.getFullYear()}`;
     document.getElementById('datum').textContent = datCeo;
     var satnica = datum.getHours();
-    console.log(satnica);
     var bulmaLogo = `<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">`;
     var keycapLogo = `<link rel="shortcut icon" href="img/pbt-white.png" type="image/x-icon" />`;
     if (satnica > 20 || satnica < 6) {
       bulmaLogo = `<img src="https://bulma.io/images/made-with-bulma--dark.png" alt="Made with Bulma" width="128" height="24">`;
-
-      }
+    }
     document.querySelector('#bulma').innerHTML = bulmaLogo;
  
   }
-  datumFun();
 
-
-  if (window.location.pathname == '/index.html' || window.location.pathname == '/Index.html') {
-    console.log("Na glavnoj stranici smo");
-  }
   
-
-    // $('.hero').css('background', 'url(img/20190710174100lk3xyiMgX1.jpg) center/cover');
-    // console.log("kliknut je");
-  
-
-  $.getJSON('https://api.ipify.org?format=jsonp&callback=?', data => {
-    let l = JSON.stringify(data).split(':');
-    let lo = l[1].toString();
-    var lok = lo.slice(1, lo.length - 2);
-    $.when(lok.length > 1).done(() => {
-      Cookies.set = ('IP', `${lok}`);
-    });
-  });
-  /////////// C OO K I E S \\\\\\\\\\\    
-  // To create a Cookie:
-  //   Cookies.set('name', 'value');
-  // To read a Cookie:
-  // Cookies.get('name'); // => 'value'
-
-  // var kolLok = Cookies.get("IPAdress");
-  // console.log(kolLok);
-
+  if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html'){
 
   $.ajax('/data/products.json', {
     method: "GET",
@@ -90,46 +60,44 @@ $(document).ready( () => {
   }); //ajax
 
   function product(products) {
-/////////// A L L \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-  if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html'){
-    //pp.preventDefault();
-  
-  var allProducts = products;
-  console.log(typeof allProducts);
-  var htmlAjax = `<div class="columns is-multiline is-centered">`;
-  allProducts.forEach(p =>{
-    htmlAjax +=`
-    <div class="column is-half is-centered" style="padding:2rem;">
-        <figure class="image">
-             <img src="${p.pic}">
-        </figure>
-        <article class="tile is-child notification is-info">
-          <p class="is-5">Category: ${p.product}</p>
-          <p class="is-5">Product: ${p.name}</p>
-          <p class="is-5">Color: ${p.color}</p>
-        </article>
-    </div>  
-    `;
-  });
-  htmlAjax += `</div>`;
-  document.querySelector("#keyboardHtml").innerHTML = htmlAjax;
-  }
-    ////////////// K E Y B O A R D S \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-    document.querySelector('#KeyboardEventListenerClick').addEventListener('click', kb => {
-      if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
-        kb.preventDefault();
-      }
 
       var keyboards = products.filter(kb => kb.product === "keyboard");
-      var htmlAjax = " ";
-    keyboards.sort((a,b)=> a.numKeys -b.numKeys);
+     document.getElementById('bigKeyboardFirst').addEventListener('click',()=> {
+        var bigKeyboardFirst = keyboards.sort((a,b)=> b.numKeys - a.numKeys);
+        console.log("velike");
+        funKeyboardsHtmlDynamic(bigKeyboardFirst);
+      });//EventListener big keyboards
+      //////////////// small keyboards first \\\\\\\\\\\\\\\\\\\\\\\\
+      document.getElementById('smallKeyboardFirst').addEventListener('click', ()=> {
+         var smallKeyboardsFirst = keyboards.sort((a,b)=> a.numKeys - b.numKeys);
+        console.log("male");
+         funKeyboardsHtmlDynamic(smallKeyboardsFirst);
+      });//eventListner small keyboards
+///////////////  C O L O R \\\\\\\\\\\\\\\\\\\\\\\
+      var color = document.getElementById('clickSelectColor');
+    document.getElementById('clickSelectColor').addEventListener('click',()=>{
+       // e.options[e.selectedIndex].value;
+        let selectColor = color.options[color.selectedIndex].value;
+        if(selectColor != 0){
+          console.log("izabrana boja boju");
+          let keyboardColor = keyboards.filter((kbCol)=> kbCol.color === selectColor);
+          console.log(keyboardColor);
+          funKeyboardsHtmlDynamic(keyboardColor);
+        }
+        
+      funKeyboardsHtmlDynamic(keyboards);
+        
+});
+   
+    funKeyboardsHtmlDynamic(keyboards);
+//}); //eventListner
+function funKeyboardsHtmlDynamic(data){
+  var htmlAjax = " ";
+
+  let keyboards = data;//.filter(kb => kb.product === "keyboard");
      keyboards.forEach(p => {
         htmlAjax +=
-          `  <div class="tiles" >
+          `  <div class="tiles " >
               <div class="tile is-13 keyboardPositioning">
                 <div class="tile is-parent is-6">
                   <article class="tile is-child notification is-dark">
@@ -140,16 +108,19 @@ $(document).ready( () => {
                 </article>
                 </div>
                 <div class="tile is-parent is-4">
-                <article class="tile is-child notification is-info">
+                <article class="tile is-child notification is-light">
                 <h2 class="title center is-3 white ">Specs</h2><br>
                 <ul>
-                   <li> <p class="title">Name: <span class="has-text-grey-light">${p.name}<span></p> </li>
+                   <li> <p class="subtitle is-4">Name: <span class="has-text-grey-light">${p.name}<span></p> </li>
                 </ul>
                 <ul>
-                    <li> <p class="title">Color: <span class="has-text-grey-light"> ${p.color}<span></p> </li>
+                    <li> <p class="subtitle is-4">Color: <span class="has-text-grey-light"> ${p.color}<span></p> </li>
                 </ul>
                 <ul>
-                   <li> <p class="title">Number of keys: <span class="has-text-grey-light"> ${p.numKeys}<span></p> </li>
+                   <li> <p class="subtitle is-4">Number of keys: <span class="has-text-grey-light"> ${p.numKeys}<span></p> </li>
+                </ul>
+                <ul>
+                   <li> <p class="subtitle is-4">Price: <span class="has-text-grey-light"> $${p.numKeys}<span></p> </li>
                 </ul>
                 <br>
                 <button class="button is-dark">Add to cart</button>
@@ -159,118 +130,48 @@ $(document).ready( () => {
       </div>`;
         // <div class="grid is-fluid" style="border:2px solid red;margin:0.5rem;"> <h2>Product category: ${p.product}</h2>// <p>Name: ${p.name}</p>
         // <p>Number of keys: ${p.numKeys}</p>// <p>Form factor: ${p.formFactor}</p>// <p>Backlit <input type='checkbox' ${p.backlit}></p>// <p>RGB <input type='checkbox'${p.RGB}></p></div>
-        document.querySelector("#keyboardHtml").innerHTML = htmlAjax;
       }); //foreach
-    }); //eventListner
-
-    //////////////    
-    /////////////////////////// K E Y C A P S \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    /////////////
-
-    document.querySelector('#KeycapsEventListenerClick').addEventListener('click', (kc) => {
-      if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
-        kc.preventDefault();
-        console.log("preventovan je");
-        $('.hero').css('background', 'url(img/20190710174100lk3xyiMgX1.jpg) center/cover');
-        // document.querySelector('.hero').style.background="url(img/201905171052391l9h5l0oE1.jpg) center/cover;";
-      }
-      var caps = products.filter(cap => cap.product === "keycaps");
-      var htmlAjax = " ";
-      caps.forEach(p => {
-        htmlAjax +=
-          ` <div class="tiles">
-          <div class="tile is-12" >
-                <div class="tile is-parent is-9">
-                  <article class="tile is-child notification is-dark">
-                      
-                            <p class="title is-3 center">${p.name}</p>
-                        
-                   <figure class="image ">
-                        <img src="${p.pic}">
-                    </figure>
-    
-                </article>
-                </div>
-                <div class="tile is-parent is-3">
-                <article class="tile is-child notification is-warning">
-                <h2 class="title center is-3 white ">Specs</h2><br>
-                <ul>
-                   <li> <p class="title">Color: <span class="has-text-grey-light">${p.color}<span></p> </li>
-                </ul>
-                <ul>
-                    <li> <p class="title">Material: <span class="has-text-grey-light"> ${p.material}<span></p> </li>
-                </ul>
-                <br>
-                <button class="button is-dark">Add to cart</button>
-                </article>
-           </div>
-        </div>
-        
-     </div>`;
-        // <div class="grid is-fluid" style="border:2px solid red;margin:0.5rem;"> <h2>Product category: ${p.product}</h2>// <p>Name: ${p.name}</p>
-        // <p>Number of keys: ${p.numKeys}</p>// <p>Form factor: ${p.formFactor}</p>// <p>Backlit <input type='checkbox' ${p.backlit}></p>// <p>RGB <input type='checkbox'${p.RGB}></p></div>
-        document.querySelector("#keyboardHtml").innerHTML = htmlAjax;
-      }); //foreach
-    }); //eventListner
-
-
-    ///////////  O T H E R S \\\\\\\\\\\\\\\\\
-
-
-    document.querySelector('#SwitchesEventListenerClick').addEventListener('click', (ot) => {
-      if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
-        ot.preventDefault();
-        console.log("preventovan je");
-        $('.hero').css('background', 'url(img/20190710174100lk3xyiMgX1.jpg) center/cover');
-        // document.querySelector('.hero').style.background="url(img/201905171052391l9h5l0oE1.jpg) center/cover;";
-      }
-      var switches = products.filter(mx => mx.product === "switches");
-      var htmlAjax = " ";
-      switches.forEach(p => {
-        htmlAjax +=
-          ` <div class="tiles">
-          <div class="tile is-12" >
-                <div class="tile is-parent is-6">
-                  <article class="tile is-child notification is-dark">
-                      
-                            <p class="title is-3 center">${p.name}</p>
-                        
-                   <figure class="image ">
-                        <img src="${p.pic}">
-                    </figure>
-    
-                </article>
-                </div>
-                <div class="tile is-parent is-6">
-                <article class="tile is-child notification is-danger">
-                <h2 class="title center is-3 white ">Specs</h2><br>
-                <ul>
-                   <li> <p class="title">Name: <span class="has-text-grey-light">${p.name}<span></p> </li>
-                </ul>
-                <ul>
-                    <li> <p class="title">Description: <span class="has-text-grey-light"> ${p.description}<span></p> </li>
-                </ul>
-                <br>
-                <button class="button is-dark">Add to cart</button>
-                </article>
-           </div>
-        </div>
-        
-     </div>`;
-        // <div class="grid is-fluid" style="border:2px solid red;margin:0.5rem;"> <h2>Product category: ${p.product}</h2>// <p>Name: ${p.name}</p>
-        // <p>Number of keys: ${p.numKeys}</p>// <p>Form factor: ${p.formFactor}</p>// <p>Backlit <input type='checkbox' ${p.backlit}></p>// <p>RGB <input type='checkbox'${p.RGB}></p></div>
-        document.querySelector("#keyboardHtml").innerHTML = htmlAjax;
-      }); //foreach
-    }); //eventListner
-
-  } //function products
+      if(data.length<1){
+        htmlAjax = `<main class="hero-body center" style="padding: 2rem;">
+            <div id="grid" style="width: 768px;">
+              <div id="a" class="center-column has-text-centered subtitle" >
+                <h2 class="title is-2 white ">There are no available products</h2><br>
+                <p class='content is-small'>Please contact as for further assistance</p>
+              </div>
+            </div>
+          </main>`;
+    }
+      let keyboardHTML = document.querySelector("#keyboardHtml");
+      keyboardHTML.innerHTML = htmlAjax;
+    //  keyboardHTML.style.marginTop = '50px';
+  }
+ 
+  }//function products 
+ } //if products.html
 
 
   if (window.location.pathname == '/contact.html' || window.location.pathname == '/Contact.html') {
     console.log("Na contact stranici smo");
-  
+    document.querySelector('#contactForm').reset(); /// na onLoad stranice se brisu podaci ranije upisano iz forme;
    document.querySelector('#submitInfo').addEventListener('click', pd => {
     pd.preventDefault();
+    $.ajax({
+      url: 'https://api.ipify.org?format=jsonp&callback=?',
+      method: "get",
+      dataType: "json",
+      timeout: 3000,
+      complete: data => {
+        let l = JSON.stringify(data).split(':');
+        let lo = l[3].toString();
+        let lok = lo.slice(1, lo.length - 11);
+          document.cookie = `IP=${lok}`;
+        },
+      error: function (error, xhr, status) {
+        console.log(status);
+        alert("Please disable your adblock");
+      }
+    });
+    
     var data = [];
     var validation = true;
     ///////// f name ////////
@@ -335,7 +236,7 @@ $(document).ready( () => {
       var passError = document.querySelector('#passError');
       var reExPass = /^[a-z0-9]{5,20}$/;
       if(!reExPass.test(pass)){
-        passError.innerHTML = `Please enter alfanumeric only password between 5 and 20 character length`;
+        passError.innerHTML = `Please enter alfanumeric only password between 5 and 20 character in length`;
         validation = false;
       }
       let enigma = CryptoJS.AES.encrypt(pass, '11231').toString();

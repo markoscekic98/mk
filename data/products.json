@@ -100,7 +100,7 @@
         "id":"kb13",
         "name" : "100% Yellow",
         "numKeys":104,
-        "color": "White",
+        "color": "Yellow",
         "pic":"img/keyboards/100Yellow.png"
     },
     {
@@ -116,7 +116,7 @@
         "id":"kb15",
         "name" : "75% White",
         "numKeys":82,
-        "color": "Black",
+        "color": "White",
         "pic":"img/keyboards/75White.jpg"
     },
 

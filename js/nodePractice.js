@@ -1,5 +1,14 @@
 
 
+
+
+
+
+
+
+
+
+
     var lok1 = $.getJSON('https://api.ipify.org?format=jsonp&callback=?',data => {
         let l = JSON.stringify(data).split(':');
         let lo = l[1].toString();

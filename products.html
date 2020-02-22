@@ -12,26 +12,26 @@
     <link rel="stylesheet" href="css/helpers.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/style.css">
-    <link type="text/css" href="bulma-social.min.css"> 
+    <link type="text/css" href="bulma-social.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <style>
 .hero {
     background: url(img/homepageMK.jpg) center/cover;
-  
+
 }
 
 @media (max-width: 900px) {
     .hero {
         background: url(img/homepageMK.jpg) center/cover;
-       
+
     }
 }
 
 @media (max-width: 420px) {
     .hero {
         background: url(img/homepageMK-small.jpg) center/cover;
-      
+
     }
     #mkSwitchH1{
         font-size: small;
@@ -62,43 +62,74 @@
 					</div>
 					<div class="navbar-menu navBarAnchor" id="navbar" style="margin-left: 20%;">
 						<div class="navbar-start">
-							<div class="navbar-item has-dropdown is-hoverable" >
-								<a href="products.html" id="allProductsEventLidtenerClick" class="navbar-link aPreventDefault" ><p style="color:white">Products</p></a>
-								<ul class="navbar-dropdown is-boxed ">
-									<a href="products.html" id="KeyboardEventListenerClick" class="navbar-item">Keyboards</a>
-                                    <a href="products.html" id="KeycapsEventListenerClick" class="navbar-item ">Keycaps</a>
-                                    
-									<a href="products.html" id="SwitchesEventListenerClick" class="navbar-item">Switches</a>
-								</ul>
+							<div class="navbar-item AboutHover" >
+								<a href="products.html" ><p style="color:white">Keyboards</p></a>
+								
 							</div>
-							<div class="navbar-item has-dropdown is-hoverable " >
-								<a href="contact.html" class="navbar-link aPreventDefault"><p style="">Contact</p></a>
-								<ul class="navbar-dropdown is-boxed" style="">
+							<div class="navbar-item has-dropdown is-hoverable AboutHover " >
+								<a href="contact.html" class="navbar-link aPreventDefault"><p>Contact</p></a>
+								<ul class="navbar-dropdown is-boxed">
 									<a href="contact.html" id="bela0" class="navbar-item">Form</a>
-									<a href="contact.html" id="bela1" class="navbar-item">Info</a>
-									
+									<a href="contact.html#a" id="bela1" class="navbar-item">Info</a>
+
 								</ul>
                             </div>
                             <div class="navbar-item AboutHover">
 								<a href="#0"  ><p>About Us</p></a>
-								
+
 							</div>
-							
+
 						</div>
 						<div class="navbar-end">
 							<div class="buttons has-addons">
-                                <p id="datum" class="navbar-item has-text-white"></p>    
+                                <p id="datum" class="navbar-item has-text-white"></p>
                             </div>
 						</div>
 					</div>
 				</div>
-				
+
 			</nav>
         </header>
+       
+        <!-- <div class="tabs is-centered is-large" id="sorthtml">
+            <ul >
+                <li class=" is-big" style="margin-right: 1rem;" > <span class="button is-light" >Sort  </span></li>
+                <li class=" is-big" ><span class="button  is-dark " id="smallKeyboardFirst">Small</span></li>
+                <li class=" is-big"style="margin-left: 1rem;" ><span class="button  is-dark" id="bigKeyboardFirst">Big</span></li>
+                
+               
+            </ul>
+        </div> -->
+        <div class="tabs is-centered is-large " >
+            <ul >
+                <li class=" is-big" style="margin-right: 1rem;" > <span class="button is-light" >Sort  </span></li>
+                <li class=" is-big" ><span class="button  is-dark " id="smallKeyboardFirst">Small</span></li>
+                <li class=" is-big"style="margin-left: 1rem;" ><span class="button  is-dark" id="bigKeyboardFirst">Big</span></li>
+                
+               
+            </ul>
+            <ul>
+                <li class="is-big">
+                    <select  class="has-dropdown  button  is-dark" id="clickSelectColor">
+                        <option value="0" class="selectColor">Colors</option>
+                        <option value="Red" class="selectColor"> Red</option>
+                        <option value="Black" class="selectColor"> Black</option>
+                        <option value="Blue" class="selectColor"> Blue</option>
+                        <option value="White" class="selectColor"> White</option>
+                        <option value="Grey" class="selectColor">Grey</option>
+                        <option value="Brown" class="selectColor">Brown</option>
+                        <option value="Pink" class="selectColor">Pink</option>
+                    </select>
+                </li>
+               
+            </ul>
+        </div>
+        
+        <!-- <div id='wrapper'> -->
        <main class="" id='keyboardHtml' style="padding:0.1rem;">
-      
-        <button>Small</button>
-        <button> Big   </button>
+        
+        
+        
             <!-- <div class="columns is-multiline ">
                 <div class="column is-half ">
                     <article class="tile is-child notification is-info">
@@ -115,7 +146,7 @@
                         <figure class="image ">
                             <img src="img/keyboards/60.png">
                           </figure>
-                        
+
 
                     </article>
                 </div>
@@ -135,31 +166,14 @@
                 </div>
             </div>
 -->
-            <div class="columns is-multiline is-centered">
-                <div class="column is-one-quarter">
-                    <figure class="image ">
-                        <img src="img/keyboards/80Black-DragonEdition.png">
-                    </figure>
-                    <article class="tile is-child notification is-info">
-                        <p class="is-5">Category: Keyboard</p>
-                        <p class="is-5">Color: Black</p>
-                    </article>
-                </div>    
-            </div> 
-             
-            
-
-
-                
-
         </main>
-        
-        <!-- https://aldi.github.io/bulma-social/ for favicons -->
+
+
         <div class="hero-foot" id="footerBoja">
             <nav class="tabs" >
                 <div class="container center-column white">
                     <ul>
-                        <li> 
+                        <li>
                           <span class="icon is-medium">
                             <i class="fab fa-linkedin"></i>
                           <span>
@@ -169,7 +183,7 @@
                               <i class="fab fa-github"></i>
                             </span>
                         </li>
-                        <li> 
+                        <li>
                             <span class="icon is-medium">
                             <i class="fas fa-envelope-open"></i>
                             </span>
@@ -179,7 +193,7 @@
                             <i class="fas fa-file-pdf"></i>
                             </span>
                         </li>
-                        
+
                         <li>
                             <span class="icon is-medium">
                                 <i class="fas fa-user-shield"></i>
@@ -187,14 +201,14 @@
                         </li>
                         <li>
                             <a id="bulma" href="https://bulma.io">
-                                
+
                                 </a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
-        
+
     </section>
 
 
@@ -205,7 +219,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
     <script src="js/script.js"></script>
-    
+  
 </body>
 
 </html>
