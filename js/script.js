@@ -33,8 +33,8 @@ $(document).ready(() => {
 
   function datumFun() {
     let datum = new Date();
-    var datCeo = `${datum.getDate()}.${datum.getMonth()+1}.${datum.getFullYear()}`;
-    document.getElementById('datum').textContent = datCeo;
+    // var datCeo = `${datum.getDate()}.${datum.getMonth()+1}.${datum.getFullYear()}`;
+    // document.getElementById('datum').textContent = datCeo;
     var satnica = datum.getHours();
     var bulmaLogo = `<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">`;
     var keycapLogo = `<link rel="shortcut icon" href="img/pbt-white.png" type="image/x-icon" />`;
@@ -124,14 +124,12 @@ $(document).ready(() => {
                    <li> <p class="subtitle is-4">Price: <span class="has-text-grey-light"> $${p.numKeys}<span></p> </li>
                 </ul>
                 <br>
-                <button class="button is-dark">Add to cart</button>
+                <button class="button is-dark korpa" value=${p.id} >Add to cart</button>
                 </article>
            </div>
         </div>
       </div>`;
-          // <div class="grid is-fluid" style="border:2px solid red;margin:0.5rem;"> <h2>Product category: ${p.product}</h2>// <p>Name: ${p.name}</p>
-          // <p>Number of keys: ${p.numKeys}</p>// <p>Form factor: ${p.formFactor}</p>// <p>Backlit <input type='checkbox' ${p.backlit}></p>// <p>RGB <input type='checkbox'${p.RGB}></p></div>
-        }); //foreach
+    }); //foreach
         if (data.length < 1) {
           htmlAjax = `<main class="hero-body center" style="padding: 2rem;">
             <div id="grid" style="width: 768px;">
@@ -146,35 +144,81 @@ $(document).ready(() => {
         keyboardHTML.innerHTML = htmlAjax;
         //  keyboardHTML.style.marginTop = '50px';
       }
-
+      var dataLsCart = [];
+      document.querySelectorAll('.korpa').forEach(shoppingCart =>{
+        shoppingCart.addEventListener('click',() =>{ 
+          dataLsCart.push(shoppingCart.value);
+          localStorage.setItem("Product", JSON.stringify(dataLsCart));
+          console.log(dataLsCart);
+        });
+      });
+    
     } //function products 
+    
   } //if products.html
 
+  if (window.location.pathname == '/cart.html') {
+    
+    $.ajax('/data/products.json', {
+      method: "GET",
+      dataType: "json",
+      success: allProducts =>{
+        cart(allProducts);
 
+      } //success
+    });
+    function cart(data) { //cros refference of all producsts there are in JSON file with those ID that have been selected
+      //console.log(data); //27 products
+     
+      
+      let getLSproducts = localStorage.getItem("Product");
+      var dataLS = JSON.parse(getLSproducts);
+      console.log(dataLS);
+      console.log(dataLS[0]);
+      var producstsInCart=[];
+      var cartHtml ='<table>';
+      var price = 0;
+      for(var indexData =0; indexData<dataLS.length; indexData++){
+        producstsInCart = data.filter(x => x.id === dataLS[indexData]);
+        producstsInCart.forEach(ls =>{
+          cartHtml +=`
+          <tr>
+          <td>Product: ${ls.name}</td>
+          <td>Price: ${ls.numKeys}</td>
+          </tr>`;
+          price += ls.numKeys;
+        });
+      }
+      cartHtml += `</table>`;
+      document.getElementById('localStorageCart').innerHTML = cartHtml;
+      document.getElementById('priceCart').innerHTML =` Your price of all ${indexData} is: ${price}`;
+      console.log(producstsInCart);
+    }
+  }
   if (window.location.pathname == '/contact.html' || window.location.pathname == '/Contact.html') {
-    console.log("Na contact stranici smo");
+  
     document.querySelector('#contactForm').reset(); /// na onLoad stranice se brisu podaci ranije upisano iz forme;
     document.querySelector('#submitInfo').addEventListener('click', pd => {
       pd.preventDefault();
       $.ajax({
-        url: 'https://api.ipify.org?format=jsonp&callback=?',
+        url: 'https://api.ipify.org?format=json',
         method: "get",
         dataType: "json",
         timeout: 3000,
         complete: data => {
-          let l = JSON.stringify(data).split(':');
-          let lo = l[3].toString();
-          let lok = lo.slice(1, lo.length - 11);
+          let l = JSON.stringify(data).split(`:\"`);
+          let lo = l[2].split(`\"`);
+          let lok = lo[0];
           document.cookie = `IP=${lok}`;
         },
         error: function (error, xhr, status) {
           console.log(status);
-          alert("Please disable your adblocker......");
+          alert("Please disable your adblocker");
         }
       });
 
       var data = [];
-      var validation = true;
+      var validation = '';
       ///////// f name ////////
       var fname = document.querySelector('#fname').value.trim();
       var fnameError = document.querySelector('#fnameError');
@@ -251,4 +295,6 @@ $(document).ready(() => {
       }
     });
   } //if contact
+
+
 }); //document.ready
