@@ -100,5 +100,12 @@ body p,h2, .white{
  background-color: rgba(153, 153, 153, 0);
  color: #ffd83d;
 }
-
+#localStorageCart table tr td, #priceCart{
+    color:white;
+    padding: 0.5rem;
+    
+}
+.verticalLine{
+    border-right:1px solid white;
+}
 

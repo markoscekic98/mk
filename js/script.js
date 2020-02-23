@@ -189,16 +189,16 @@ $(document).ready(() => {
         producstsInCart.forEach(ls =>{
           cartHtml +=`
           <tr>
-          <td>Product: ${ls.id}</td>
-          <td>Product: ${ls.name}</td>
-          <td>Price: ${ls.numKeys}</td>
+          <td class="verticalLine">ID: ${ls.id} </td>
+          <td class="verticalLine">Name: ${ls.name} </td>
+          <td>Price: $${ls.numKeys} </td>
           </tr>`;
           price += ls.numKeys;
         });
       }
       cartHtml += `</table>`;
       document.getElementById('localStorageCart').innerHTML = cartHtml;
-      document.getElementById('priceCart').innerHTML =` Your price of all ${indexData} is: ${price}`;
+      document.getElementById('priceCart').innerHTML =`Price for all products combined is: $${price}, nubmer of chosen producst: ${indexData}`;
       console.log(producstsInCart);
     }
   }

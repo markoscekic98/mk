@@ -1,18 +1,19 @@
- #This website is for school project for course 'Web programiranje 2' 
+ This website is for school course 'Web programiranje 2' 
 
- #Course requires the following:
-  - Website must be responsive  -check
-  - SEO -check (score 89 -lighthouse)
-  - Form data validation with regular expression -check
-  - Ajax & JSON -check
-  - Filter & Sort of JSON data -check
-  - Cookies & Local Storage -check
+ Course requires the following:
+  - Website must be responsive 
+  - SEO  (score 89 in lighthouse)
+  - Form data validation with regular expression -
+  - Ajax & JSON 
+  - Filter & Sort of JSON data
+  - Cookies & Local Storage
+  - Docs 
   
-#Frameworks, libraries, API's, CDN's used:
- CDN: CloudFlare, JSdeliver
- Framework: Bulma (CSS) 
- API: ipify
- Libraries: jQuery(JavaScript)
+Frameworks, libraries, API's, CDN's used:
+ - CDN: CloudFlare, JSdeliver
+ - Framework: Bulma (CSS) 
+ - API: ipify
+ - Libraries: jQuery(JavaScript)
 
-#Website doesnt not share any personal or any other information, alse website does not store third party cookies(tracking)
+Website doesnt not share personal or any other information, also website does not store third party cookies.
 
