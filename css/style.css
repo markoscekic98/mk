@@ -96,6 +96,9 @@ body p,h2, .white{
     padding-left:25px;
     padding-right: 25px;
 }
-
+#cartAncher:hover , #cartAncher span:hover{
+ background-color: rgba(153, 153, 153, 0);
+ color: #ffd83d;
+}
 
 

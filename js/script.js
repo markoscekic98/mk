@@ -59,7 +59,8 @@ $(document).ready(() => {
 
     function product(products) {
 
-      const keyboards = products.filter(kb => kb.product === "keyboard");
+      var keyboards = products.filter(kb => kb.product === "keyboard");
+      funKeyboardsHtmlDynamic(keyboards);
       document.getElementById('bigKeyboardFirst').addEventListener('click', () => {
         var bigKeyboardFirst = keyboards.sort((a, b) => b.numKeys - a.numKeys);
         console.log("velike");
@@ -84,14 +85,10 @@ $(document).ready(() => {
           funKeyboardsHtmlDynamic(keyboardColor);
         }
         else{
-          funKeyboardsHtmlDynamic(keyboards);
+        funKeyboardsHtmlDynamic(keyboards);
         }
-        
-       
       });
-      funKeyboardsHtmlDynamic(keyboards);
-     // funKeyboardsHtmlDynamic(keyboards);
-      //}); //eventListner
+     
       function funKeyboardsHtmlDynamic(data) {
         var htmlAjax = " ";
 
@@ -124,7 +121,7 @@ $(document).ready(() => {
                    <li> <p class="subtitle is-4">Price: <span class="has-text-grey-light"> $${p.numKeys}<span></p> </li>
                 </ul>
                 <br>
-                <button class="button is-dark korpa" value=${p.id} >Add to cart</button>
+                <button class="button is-dark korpa" id="idKorpa" value=${p.id} >Add to cart</button>
                 </article>
            </div>
         </div>
@@ -144,17 +141,28 @@ $(document).ready(() => {
         keyboardHTML.innerHTML = htmlAjax;
         //  keyboardHTML.style.marginTop = '50px';
       }
+     
       var dataLsCart = [];
       document.querySelectorAll('.korpa').forEach(shoppingCart =>{
         shoppingCart.addEventListener('click',() =>{ 
+        let addToCartAnimation =  setTimeout(loadAnim,0);
+          function loadAnim(){
+            shoppingCart.classList.add('is-loading');
+         }
+         setTimeout(()=>{
+           clearInterval(addToCartAnimation);
+           shoppingCart.classList.remove('is-loading');
+           shoppingCart.innerHTML=`<span class="icon is-small">
+                                   <i class="fas fa-check"></i>
+                                   </span><span>Saved</span>`;
+          },700);
+         
           dataLsCart.push(shoppingCart.value);
-          localStorage.setItem("Product", JSON.stringify(dataLsCart));
-          console.log(dataLsCart);
+          localStorage.setItem("Product", JSON.stringify(dataLsCart)); 
+          //console.log(dataLsCart);
         });
       });
-    
     } //function products 
-    
   } //if products.html
 
   if (window.location.pathname == '/cart.html') {
@@ -169,8 +177,6 @@ $(document).ready(() => {
     });
     function cart(data) { //cros refference of all producsts there are in JSON file with those ID that have been selected
       //console.log(data); //27 products
-     
-      
       let getLSproducts = localStorage.getItem("Product");
       var dataLS = JSON.parse(getLSproducts);
       console.log(dataLS);
@@ -183,6 +189,7 @@ $(document).ready(() => {
         producstsInCart.forEach(ls =>{
           cartHtml +=`
           <tr>
+          <td>Product: ${ls.id}</td>
           <td>Product: ${ls.name}</td>
           <td>Price: ${ls.numKeys}</td>
           </tr>`;
