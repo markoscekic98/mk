@@ -1,4 +1,4 @@
-$(document).ready(() => {
+window.onload =()=>{
   datumFun();
   ////////////template js(for burger menu in navbar)\\\\\\\\\\\\\\\\
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0); // Check if there are any navbar burgers
@@ -7,7 +7,7 @@ $(document).ready(() => {
       $el.addEventListener('click', () => {
         $('.navBarAnchor').css({'margin-right': '0px', 'margin-bottom': '1.5rem'});
         $('.navbar-start p').css('color', 'silver');
-        $('#datum').css('color', 'silver');
+       
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
         var $target = document.getElementById(target);
@@ -26,7 +26,7 @@ $(document).ready(() => {
   
   });
   let count = 0;
-  var datumIspis = document.querySelector('#datum');
+  
 
   // datumIspis.addEventListener('click', () => console.log(`Clicked ${count++} times`));
 
@@ -47,53 +47,81 @@ $(document).ready(() => {
 
 
   if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
-
+    
     $.ajax('/data/products.json', {
       method: "GET",
       dataType: "json",
       success: function (products) {
-        product(products);
-
-      } //success
-    }); //ajax
-
-    function product(products) {
-
-      var keyboards = products.filter(kb => kb.product === "keyboard");
+        // product(products);
+  //   } //success
+    // }); //ajax
+// function product(products) {
+      var keyboards = products;
       funKeyboardsHtmlDynamic(keyboards);
+      addEventCart();
+
+        //////////// sort by bigger keyboards first\\\\\\\\\\\\\\\\\\\\\\\
       document.getElementById('bigKeyboardFirst').addEventListener('click', () => {
-        var bigKeyboardFirst = keyboards.sort((a, b) => b.numKeys - a.numKeys);
+         keyboards.sort((a, b) => b.numKeys - a.numKeys);
         console.log("velike");
-        funKeyboardsHtmlDynamic(bigKeyboardFirst);
+        funKeyboardsHtmlDynamic(keyboards);
+        addEventCart();
       }); //EventListener big keyboards
       //////////////// small keyboards first \\\\\\\\\\\\\\\\\\\\\\\\
       document.getElementById('smallKeyboardFirst').addEventListener('click', () => {
-        var smallKeyboardsFirst = keyboards.sort((a, b) => a.numKeys - b.numKeys);
+        keyboards.sort((a, b) => a.numKeys - b.numKeys);
         console.log("male");
-        funKeyboardsHtmlDynamic(smallKeyboardsFirst);
+        funKeyboardsHtmlDynamic(keyboards);
+        addEventCart();
       }); //eventListner small keyboards
 
       //// /////////////////////  C O L O R \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-      var color = document.getElementById('clickSelectColor');
+      const color = document.getElementById('clickSelectColor');
       document.getElementById('clickSelectColor').addEventListener('click', () => {
         
         // e.options[e.selectedIndex].value;
-        var selectColor = color.options[color.selectedIndex].value;
+        let selectColor = color.options[color.selectedIndex].value;
         if(selectColor.length>1){
           let keyboardColor = keyboards.filter((kbCol) => kbCol.color === selectColor);
           funKeyboardsHtmlDynamic(keyboardColor);
+          addEventCart();
         }
         else{
-        funKeyboardsHtmlDynamic(keyboards);
+          funKeyboardsHtmlDynamic(keyboards);
+          addEventCart();
         }
       });
-     
+      function addEventCart(){
+      
+      var dataLsCart = [];
+      document.querySelectorAll('.korpa').forEach(shoppingCart =>{
+       shoppingCart.addEventListener('click',eventCartButton =>{
+          console.log(eventCartButton);
+        let addToCartAnimation =  setTimeout(loadAnim,0);
+          function loadAnim(){
+            shoppingCart.classList.add('is-loading');
+         }
+         setTimeout(()=>{
+           clearInterval(addToCartAnimation);
+           shoppingCart.classList.remove('is-loading');
+           shoppingCart.innerHTML=`<span class="icon is-small">
+                                   <i class="fas fa-check"></i>
+                                   </span><span>Saved</span>`;
+          },700);
+         
+          dataLsCart.push(shoppingCart.value);
+          localStorage.setItem("Product", JSON.stringify(dataLsCart)); 
+          //console.log(dataLsCart);
+        });
+       });
+    }//fun addeventCart
+
+
       function funKeyboardsHtmlDynamic(data) {
         var htmlAjax = " ";
 
-        let keyboards = data; //.filter(kb => kb.product === "keyboard");
-        keyboards.forEach(p => {
+        data.forEach(p => {
           htmlAjax +=
             `  <div class="tiles " >
               <div class="tile is-13 keyboardPositioning">
@@ -140,29 +168,18 @@ $(document).ready(() => {
         let keyboardHTML = document.querySelector("#keyboardHtml");
         keyboardHTML.innerHTML = htmlAjax;
         //  keyboardHTML.style.marginTop = '50px';
-      }
-     
-      var dataLsCart = [];
-      document.querySelectorAll('.korpa').forEach(shoppingCart =>{
-        shoppingCart.addEventListener('click',() =>{ 
-        let addToCartAnimation =  setTimeout(loadAnim,0);
-          function loadAnim(){
-            shoppingCart.classList.add('is-loading');
-         }
-         setTimeout(()=>{
-           clearInterval(addToCartAnimation);
-           shoppingCart.classList.remove('is-loading');
-           shoppingCart.innerHTML=`<span class="icon is-small">
-                                   <i class="fas fa-check"></i>
-                                   </span><span>Saved</span>`;
-          },700);
-         
-          dataLsCart.push(shoppingCart.value);
-          localStorage.setItem("Product", JSON.stringify(dataLsCart)); 
-          //console.log(dataLsCart);
-        });
-      });
-    } //function products 
+      } //// function funKeyboardsHtmlDynamic(data)
+    } //success
+  }); //ajax
+    //} //function products 
+    let arr = [1,2,3];
+    for(const i in arr){
+      console.log(i);// vraca [i] niza
+    }
+    for(const i of arr){
+      console.log(i); //vraca [i].value
+    }
+
   } //if products.html
 
   if (window.location.pathname == '/cart.html') {
@@ -182,14 +199,14 @@ $(document).ready(() => {
       console.log(dataLS);
       console.log(dataLS[0]);
       var producstsInCart=[];
-      var cartHtml ='<table>';
+      var cartHtml ='<table  class="center">';
       var price = 0;
       for(var indexData =0; indexData<dataLS.length; indexData++){
         producstsInCart = data.filter(x => x.id === dataLS[indexData]);
         producstsInCart.forEach(ls =>{
           cartHtml +=`
-          <tr>
-          <td class="verticalLine">ID: ${ls.id} </td>
+          <tr >
+          <td class="verticalLine">Product ID: ${ls.id} </td>
           <td class="verticalLine">Name: ${ls.name} </td>
           <td>Price: $${ls.numKeys} </td>
           </tr>`;
@@ -198,8 +215,12 @@ $(document).ready(() => {
       }
       cartHtml += `</table>`;
       document.getElementById('localStorageCart').innerHTML = cartHtml;
-      document.getElementById('priceCart').innerHTML =`Price for all products combined is: $${price}, nubmer of chosen producst: ${indexData}`;
+      document.getElementById('priceCart').innerHTML =`Price for all products combined is: $${price}, number of chosen products: ${indexData}`;
       console.log(producstsInCart);
+      const cartBorder = $('tr');
+      let len= cartBorder.length - 1;
+      console.log(len);
+      cartBorder[len].style.border = "0px solid white";
     }
   }
   if (window.location.pathname == '/contact.html' || window.location.pathname == '/Contact.html') {
@@ -215,8 +236,7 @@ $(document).ready(() => {
         complete: data => {
           let l = JSON.stringify(data).split(`:\"`);
           let lo = l[2].split(`\"`);
-          let lok = lo[0];
-          document.cookie = `IP=${lok}`;
+          document.cookie = `IP=${lo[0]}`;
         },
         error: function (error, xhr, status) {
           console.log(status);
@@ -304,4 +324,4 @@ $(document).ready(() => {
   } //if contact
 
 
-}); //document.ready
+}; //document.ready

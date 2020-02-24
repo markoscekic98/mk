@@ -55,7 +55,7 @@
 .tilesColor{
     background-color: rgb(0, 0, 0);
 } */
-.AboutHover:hover, .AboutHover p:hover {
+.AboutHover:hover {
     background-color:#ffd83d;
     border-radius: 5px;
     color:grey;
@@ -105,7 +105,16 @@ body p,h2, .white{
     padding: 0.5rem;
     
 }
-.verticalLine{
-    border-right:1px solid white;
+#submitInfo{
+    border-radius: 5px;
+
 }
+table tr{
+    border-bottom:1px solid white;
+}
+/* .verticalLine{
+    border-right:3px solid white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+} */
 
