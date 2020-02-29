@@ -106,7 +106,7 @@ window.onload =()=>{
            clearInterval(addToCartAnimation);
            shoppingCart.classList.remove('is-loading');
            shoppingCart.innerHTML=`<span class="icon is-small">
-                                   <i class="fas fa-check"></i>
+                                   <i class="fa fa-check"></i>
                                    </span><span>Saved</span>`;
           },700);
          
