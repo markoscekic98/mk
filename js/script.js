@@ -1,13 +1,16 @@
-window.onload =()=>{
+window.onload = () => {
   datumFun();
   ////////////template js(for burger menu in navbar)\\\\\\\\\\\\\\\\
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0); // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) { // Add a click event on each of them
     $navbarBurgers.forEach($el => {
       $el.addEventListener('click', () => {
-        $('.navBarAnchor').css({'margin-right': '0px', 'margin-bottom': '1.5rem'});
+        $('.navBarAnchor').css({
+          'margin-right': '0px',
+          'margin-bottom': '1.5rem'
+        });
         $('.navbar-start p').css('color', 'silver');
-       
+
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
         var $target = document.getElementById(target);
@@ -21,12 +24,11 @@ window.onload =()=>{
   ////////////////  End of template js \\\\\\\\\\\\\\\\\\  
   document.querySelector('.navbar-burger').addEventListener('click', () => {
     document.getElementById('navbar').style.backgroundColor = 'rgba(223, 223, 223, 0.4)'; //'rgba(5, 5, 5, 0.4)';
-    $('.burgerColor').css('color','#272727');
-    
-  
+    $('.burgerColor').css('color', '#272727');
+    $('.AboutHover p').css('color','white');
   });
   let count = 0;
-  
+
 
   // datumIspis.addEventListener('click', () => console.log(`Clicked ${count++} times`));
 
@@ -47,83 +49,84 @@ window.onload =()=>{
 
 
   if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
-    
+
     $.ajax('/data/products.json', {
       method: "GET",
       dataType: "json",
       success: function (products) {
         // product(products);
-  //   } //success
-    // }); //ajax
-// function product(products) {
-      var keyboards = products;
-      funKeyboardsHtmlDynamic(keyboards);
-      addEventCart();
+        //   } //success
+        // }); //ajax
+        // function product(products) {
+        var keyboards = products;
+        funKeyboardsHtmlDynamic(keyboards);
+        addEventCart();
 
         //////////// sort by bigger keyboards first\\\\\\\\\\\\\\\\\\\\\\\
-      document.getElementById('bigKeyboardFirst').addEventListener('click', () => {
-         keyboards.sort((a, b) => b.numKeys - a.numKeys);
-        console.log("velike");
-        funKeyboardsHtmlDynamic(keyboards);
-        addEventCart();
-      }); //EventListener big keyboards
-      //////////////// small keyboards first \\\\\\\\\\\\\\\\\\\\\\\\
-      document.getElementById('smallKeyboardFirst').addEventListener('click', () => {
-        keyboards.sort((a, b) => a.numKeys - b.numKeys);
-        console.log("male");
-        funKeyboardsHtmlDynamic(keyboards);
-        addEventCart();
-      }); //eventListner small keyboards
-
-      //// /////////////////////  C O L O R \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-      const color = document.getElementById('clickSelectColor');
-      document.getElementById('clickSelectColor').addEventListener('click', () => {
-        
-        // e.options[e.selectedIndex].value;
-        let selectColor = color.options[color.selectedIndex].value;
-        if(selectColor.length>1){
-          let keyboardColor = keyboards.filter((kbCol) => kbCol.color === selectColor);
-          funKeyboardsHtmlDynamic(keyboardColor);
-          addEventCart();
-        }
-        else{
+        document.getElementById('bigKeyboardFirst').addEventListener('click', () => {
+          keyboards.sort((a, b) => b.numKeys - a.numKeys);
+          console.log("velike");
           funKeyboardsHtmlDynamic(keyboards);
           addEventCart();
-        }
-      });
-      function addEventCart(){
-      
-      var dataLsCart = [];
-      document.querySelectorAll('.korpa').forEach(shoppingCart =>{
-       shoppingCart.addEventListener('click',eventCartButton =>{
-          console.log(eventCartButton);
-        let addToCartAnimation =  setTimeout(loadAnim,0);
-          function loadAnim(){
-            shoppingCart.classList.add('is-loading');
-         }
-         setTimeout(()=>{
-           clearInterval(addToCartAnimation);
-           shoppingCart.classList.remove('is-loading');
-           shoppingCart.innerHTML=`<span class="icon is-small">
+        }); //EventListener big keyboards
+        //////////////// small keyboards first \\\\\\\\\\\\\\\\\\\\\\\\
+        document.getElementById('smallKeyboardFirst').addEventListener('click', () => {
+          keyboards.sort((a, b) => a.numKeys - b.numKeys);
+          console.log("male");
+          funKeyboardsHtmlDynamic(keyboards);
+          addEventCart();
+        }); //eventListner small keyboards
+
+        //// /////////////////////  C O L O R \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+        const color = document.getElementById('clickSelectColor');
+        document.getElementById('clickSelectColor').addEventListener('click', () => {
+
+          // e.options[e.selectedIndex].value;
+          let selectColor = color.options[color.selectedIndex].value;
+          if (selectColor.length > 1) {
+            let keyboardColor = keyboards.filter((kbCol) => kbCol.color === selectColor);
+            funKeyboardsHtmlDynamic(keyboardColor);
+            addEventCart();
+          } else {
+            funKeyboardsHtmlDynamic(keyboards);
+            addEventCart();
+          }
+        });
+
+        function addEventCart() {
+
+          var dataLsCart = [];
+          document.querySelectorAll('.korpa').forEach(shoppingCart => {
+            shoppingCart.addEventListener('click', eventCartButton => {
+              console.log(eventCartButton);
+              let addToCartAnimation = setTimeout(loadAnim, 0);
+
+              function loadAnim() {
+                shoppingCart.classList.add('is-loading');
+              }
+              setTimeout(() => {
+                clearInterval(addToCartAnimation);
+                shoppingCart.classList.remove('is-loading');
+                shoppingCart.innerHTML = `<span class="icon is-small">
                                    <i class="fa fa-check"></i>
                                    </span><span>Saved</span>`;
-          },700);
-         
-          dataLsCart.push(shoppingCart.value);
-          localStorage.setItem("Product", JSON.stringify(dataLsCart)); 
-          //console.log(dataLsCart);
-        });
-       });
-    }//fun addeventCart
+              }, 700);
+
+              dataLsCart.push(shoppingCart.value);
+              localStorage.setItem("Product", JSON.stringify(dataLsCart));
+              //console.log(dataLsCart);
+            });
+          });
+        } //fun addeventCart
 
 
-      function funKeyboardsHtmlDynamic(data) {
-        var htmlAjax = " ";
+        function funKeyboardsHtmlDynamic(data) {
+          var htmlAjax = " ";
 
-        data.forEach(p => {
-          htmlAjax +=
-            `  <div class="tiles " >
+          data.forEach(p => {
+            htmlAjax +=
+              `  <div class="tiles " >
               <div class="tile is-13 keyboardPositioning">
                 <div class="tile is-parent is-6">
                   <article class="tile is-child notification is-dark">
@@ -154,9 +157,9 @@ window.onload =()=>{
            </div>
         </div>
       </div>`;
-    }); //foreach
-        if (data.length < 1) {
-          htmlAjax = `<main class="hero-body center" style="padding: 2rem;">
+          }); //foreach
+          if (data.length < 1) {
+            htmlAjax = `<main class="hero-body center" style="padding: 2rem;">
             <div id="grid" style="width: 768px;">
               <div id="a" class="center-column has-text-centered subtitle" >
                 <h2 class="title is-2 white ">There are no available products</h2><br>
@@ -164,67 +167,85 @@ window.onload =()=>{
               </div>
             </div>
           </main>`;
-        }
-        let keyboardHTML = document.querySelector("#keyboardHtml");
-        keyboardHTML.innerHTML = htmlAjax;
-        //  keyboardHTML.style.marginTop = '50px';
-      } //// function funKeyboardsHtmlDynamic(data)
-    } //success
-  }); //ajax
+          }
+          let keyboardHTML = document.querySelector("#keyboardHtml");
+          keyboardHTML.innerHTML = htmlAjax;
+          //  keyboardHTML.style.marginTop = '50px';
+        } //// function funKeyboardsHtmlDynamic(data)
+      } //success
+    }); //ajax
     //} //function products 
-    let arr = [1,2,3];
-    for(const i in arr){
-      console.log(i);// vraca [i] niza
-    }
-    for(const i of arr){
-      console.log(i); //vraca [i].value
-    }
+
 
   } //if products.html
 
   if (window.location.pathname == '/cart.html') {
-    
+
     $.ajax('/data/products.json', {
       method: "GET",
       dataType: "json",
-      success: allProducts =>{
+      success: allProducts => {
         cart(allProducts);
 
       } //success
     });
+
     function cart(data) { //cros refference of all producsts there are in JSON file with those ID that have been selected
       //console.log(data); //27 products
       let getLSproducts = localStorage.getItem("Product");
       var dataLS = JSON.parse(getLSproducts);
-      console.log(dataLS);
-      console.log(dataLS[0]);
-      var producstsInCart=[];
-      var cartHtml ='<table  class="center">';
+      // console.log(dataLS);
+      // console.log(dataLS[0]);
+      var producstsInCart = [];
+      var cartHtml = '<table  class="center">';
       var price = 0;
-      for(var indexData =0; indexData<dataLS.length; indexData++){
-        producstsInCart = data.filter(x => x.id === dataLS[indexData]);
-        producstsInCart.forEach(ls =>{
-          cartHtml +=`
-          <tr >
-          <td class="verticalLine">Product ID: ${ls.id} </td>
-          <td class="verticalLine">Name: ${ls.name} </td>
-          <td>Price: $${ls.numKeys} </td>
-          </tr>`;
-          price += ls.numKeys;
-        });
+      if (dataLS) {
+        for (var indexData = 0; indexData < dataLS.length; indexData++) {
+          producstsInCart = data.filter(x => x.id === dataLS[indexData]);
+          producstsInCart.forEach(ls => {
+            cartHtml += `
+              <tr >
+                <td class="verticalLine">Product ID: ${ls.id} </td>
+                <td class="verticalLine">Name: ${ls.name} </td>
+                <td>Price: $${ls.numKeys} </td>
+              </tr>`;
+            price += ls.numKeys;
+          });
+        }
+
+        cartHtml += `</table><div class="control center-column">
+      <button class="button" id="clearLSData" >Clear All</button></div>`;
+        document.getElementById('localStorageCart').innerHTML = cartHtml;
+        document.getElementById('priceCart').innerHTML = `Price for all products combined is: $${price},   number of chosen products: ${indexData}`;
       }
-      cartHtml += `</table>`;
-      document.getElementById('localStorageCart').innerHTML = cartHtml;
-      document.getElementById('priceCart').innerHTML =`Price for all products combined is: $${price}, number of chosen products: ${indexData}`;
       console.log(producstsInCart);
-      const cartBorder = $('tr');
-      let len= cartBorder.length - 1;
-      console.log(len);
-      cartBorder[len].style.border = "0px solid white";
+      try {
+        const cartBorder = $('tr');
+        let len = cartBorder.length - 1;
+        //console.log(len);
+        cartBorder[len].style.border = "0px solid white";
+      } catch {
+        console.log("no data");
+      }
+      try {
+        document.querySelector('#clearLSData').addEventListener('click', () => {
+          console.log("obrisanoListener");
+          localStorage.clear();
+          document.getElementById('localStorageCart').innerHTML = '';
+          document.getElementById('priceCart').innerHTML = '';
+        });
+      } catch {
+        console.log("No data to clear");
+      }
     }
+    /////// brisanje podataka iz korpe\\\\\\
+    // try{
+    //const clearLSDataButton =  
+
+
   }
   if (window.location.pathname == '/contact.html' || window.location.pathname == '/Contact.html') {
-  
+
     document.querySelector('#contactForm').reset(); /// na onLoad stranice se brisu podaci ranije upisano iz forme;
     document.querySelector('#submitInfo').addEventListener('click', pd => {
       pd.preventDefault();

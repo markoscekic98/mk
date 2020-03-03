@@ -65,6 +65,11 @@
 .aPreventDefault{
     border-radius: 15px;
 }
+.aPreventDefault:hover{
+    border-radius: 5px;
+    color:silver;
+    background-color: #ffd83d;
+}
 #navBoja{
     background: rgb(0,0,0);
     background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 25%);
