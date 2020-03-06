@@ -108,12 +108,16 @@ window.onload = () => {
               setTimeout(() => {
                 clearInterval(addToCartAnimation);
                 shoppingCart.classList.remove('is-loading');
-                shoppingCart.innerHTML = `<span class="icon is-small">
-                                   <i class="fa fa-check"></i>
-                                   </span><span>Saved</span>`;
+                shoppingCart.innerHTML = `<span class="icon is-small white">
+                                   <i class="fa fa-check white"></i>
+                                   </span class="white"><span>Saved</span>`;
               }, 700);
 
               dataLsCart.push(shoppingCart.value);
+              document.getElementById('cartAncher').innerHTML= `<span class="icon is-medium">
+              <i class="fa fa-cart-arrow-down"></i>
+          </span><p class="korpaBroj">${dataLsCart.length}</p>`;
+              console.log(dataLsCart.length);
               localStorage.setItem("Product", JSON.stringify(dataLsCart));
               //console.log(dataLsCart);
             });
@@ -129,7 +133,7 @@ window.onload = () => {
               `  <div class="tiles " >
               <div class="tile is-13 keyboardPositioning">
                 <div class="tile is-parent is-6">
-                  <article class="tile is-child notification is-dark">
+                  <article class="tile is-child notification productPic">
                     <p class="title is-3 center">${p.name}</p>
                     <figure class="image ">
                         <img src="${p.pic}">
@@ -137,19 +141,19 @@ window.onload = () => {
                 </article>
                 </div>
                 <div class="tile is-parent is-4">
-                <article class="tile is-child notification is-light">
-                <h2 class="title center is-3 white ">Specs</h2><br>
+                <article class="tile is-child notification productText">
+                <h3 class="title center is-3" style="color:black;">Specs</h3><br>
                 <ul>
-                   <li> <p class="subtitle is-4">Name: <span class="has-text-grey-light">${p.name}<span></p> </li>
+                   <li> <p class="subtitle is-4">Name: <span class="productTextSpan">${p.name}<span></p> </li>
                 </ul>
                 <ul>
-                    <li> <p class="subtitle is-4">Color: <span class="has-text-grey-light"> ${p.color}<span></p> </li>
+                    <li> <p class="subtitle is-4">Color: <span class="productTextSpan"> ${p.color}<span></p> </li>
                 </ul>
                 <ul>
-                   <li> <p class="subtitle is-4">Number of keys: <span class="has-text-grey-light"> ${p.numKeys}<span></p> </li>
+                   <li> <p class="subtitle is-4">Number of keys: <span class="productTextSpan"> ${p.numKeys}<span></p> </li>
                 </ul>
                 <ul>
-                   <li> <p class="subtitle is-4">Price: <span class="has-text-grey-light"> $${p.numKeys}<span></p> </li>
+                   <li> <p class="subtitle is-4">Price: <span class="productTextSpan"> $${p.numKeys}<span></p> </li>
                 </ul>
                 <br>
                 <button class="button is-dark korpa" id="idKorpa" value=${p.id} >Add to cart</button>
