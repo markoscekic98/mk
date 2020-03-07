@@ -187,10 +187,11 @@ window.onload = () => {
    
       let getLSproducts = localStorage.getItem("Product");
       var dataLS = JSON.parse(getLSproducts);
+      try{
       document.getElementById('cartAncher').innerHTML = `<span class="icon is-medium">
               <i class="fa fa-cart-arrow-down"></i>
           </span><p class="korpaBroj">${dataLS.length}</p>`;
-   
+      }catch {}
       var producstsInCart = [];
       var cartHtml = '<table  class="center">';
       var price = 0;
