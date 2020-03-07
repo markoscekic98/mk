@@ -198,6 +198,9 @@ window.onload = () => {
       //console.log(data); //27 products
       let getLSproducts = localStorage.getItem("Product");
       var dataLS = JSON.parse(getLSproducts);
+      document.getElementById('cartAncher').innerHTML= `<span class="icon is-medium">
+              <i class="fa fa-cart-arrow-down"></i>
+          </span><p class="korpaBroj">${dataLS.length}</p>`;
       // console.log(dataLS);
       // console.log(dataLS[0]);
       var producstsInCart = [];
@@ -249,28 +252,31 @@ window.onload = () => {
 
   }
   if (window.location.pathname == '/contact.html' || window.location.pathname == '/Contact.html') {
-
+    $.ajax({
+      url: 'https://api.ipify.org?format=json',
+      method: "get",
+      dataType: "json",
+       timeout: 2100,
+      complete: data => {
+        try{
+        let l = JSON.stringify(data).split(`:\"`);
+        let lo = l[2].split(`\"`);
+        document.cookie = `IP=${lo[0]}`;
+        }
+        catch{}
+      },
+      error: function (error, xhr, status) {
+        swal("Please disable adblocker","In order to login, please disable adblocker","error");
+      }
+    });
     document.querySelector('#contactForm').reset(); /// na onLoad stranice se brisu podaci ranije upisano iz forme;
     document.querySelector('#submitInfo').addEventListener('click', pd => {
       pd.preventDefault();
-      $.ajax({
-        url: 'https://api.ipify.org?format=json',
-        method: "get",
-        dataType: "json",
-        timeout: 3000,
-        complete: data => {
-          let l = JSON.stringify(data).split(`:\"`);
-          let lo = l[2].split(`\"`);
-          document.cookie = `IP=${lo[0]}`;
-        },
-        error: function (error, xhr, status) {
-          console.log(status);
-          alert("Please disable your adblocker");
-        }
-      });
+      console.log("pritisnuto")
+  
 
       var data = [];
-      var validation = '';
+      var validation = true;
       ///////// f name ////////
       var fname = document.querySelector('#fname').value.trim();
       var fnameError = document.querySelector('#fnameError');
@@ -305,14 +311,16 @@ window.onload = () => {
       //////////////   z  I  P   \\\\\\\\\\\\\\\\\\ 
 
       var zip = document.querySelector('#zip').value.trim();
+      console.log(zip);
       var zipError = document.querySelector('#zipError');
-      if (zip < 10000 || zip > 99999) {
+      if (zip <10000 || zip >100000) {
         zipError.innerHTML = `Please enter correct zip code (10 000 - 99 999)`;
         validation = false;
       }
+      
       data.push(zip);
       document.cookie = `Zip Code = ${zip}`;
-
+      
       /////////////////  E M A I L \\\\\\\\\\\\\\\
 
       var em = document.querySelector('#email').value.trim();
@@ -340,12 +348,11 @@ window.onload = () => {
       data.push(enigma);
       document.cookie = `Password = ${enigma}`;
 
-
-      if (data.length > 2 && validation) {
-        console.log(data);
-        alert("Successful login, thank you");
+      if (data.length > 3 && validation) {
+        swal("Success!","Contact information is sent to our server for further validation","success");
       }
     });
+   
   } //if contact
 
 
