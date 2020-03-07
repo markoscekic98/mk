@@ -1,158 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MK International is world renown for its excellent mechanical keyboards"/>
+    <meta name="description" content="MK International is world renown for its excellent mechanical keyboards" />
     <title>MK</title>
-    <!-- <link rel="shortcut icon" href="img/pbt-white.png" type="image/x-icon" /> -->
+    <link rel="shortcut icon" href="img/pbt-white.png" id="ikonica" type="image/x-icon" />
     <link rel="stylesheet" href="css/bulma.css">
-    <link rel="stylesheet" href="css/helpers.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/debug.css"> -->
-    <!-- <link rel="stylesheet" href = "https://www.jsdelivr.com/package/npm/bulma">
-    <link rel="stylesheet" type="text/css" href="bulma-social.min.css">  -->
+    <!-- <link rel="stylesheet" href = "https://www.jsdelivr.com/package/npm/bulma"> -->
+    <link rel="stylesheet" href="/css/helpers.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bulma-social.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    
-
-    
 </head>
 <style>
   .hero {
-      background: url(img/homepageMK.jpg) center/cover;
-    
+    background: url(img/homepageMK.jpg) center/cover;
+
   }
-  
+
   @media (max-width: 900px) {
-      .hero {
-          background: url(img/homepageMK.jpg) center/cover;
-         
-      }
+    .hero {
+      background: url(img/homepageMK.jpg) center/cover;
+
+    }
   }
-  
+
   @media (max-width: 420px) {
-      .hero {
-          background: url(img/homepageMK-small.jpg) center/cover;
-        
-      }
+    .hero {
+      background: url(img/homepageMK-small.jpg) center/cover;
+
+    }
   }
-  
-  </style>
+</style>
+
 <body>
 
-    <!--.hero-->
-   <section class="hero  is-fullheight">
+  <!--.hero-->
+  <section class="hero  is-fullheight">
     <header>
       <nav class="navbar is-warning" id="navBoja" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <div class="navbar-brand is-tablet ">
-      <a href="index.html"><img src="img/pbt-white.png"  id='mkSwitch' width="90" height="20"></a>
-                   <p class="title is-4 navPBrand" style="color:white"  >Mechanical<br>Keyboard</p>
-      <div class="navbar-burger" data-target="navbar">
-        <span style="color:white"></span>
-        <span style="color:white" ></span>
-        <span style="color:white"></span>
-      </div>
-    </div>
-    <div class="navbar-menu navBarAnchor" id="navbar" style="margin-left: 20%;">
-      <div class="navbar-start">
-        <div class="navbar-item AboutHover" >
-          <a href="products.html" ><p>Keyboards</p></a>
-          
+        <div class="container">
+          <div class="navbar-brand is-tablet ">
+            <a href="index.html"><img src="img/pbt-white.png" id='mkSwitch' width="90" height="20"></a>
+            <p class="title is-4 navPBrand" style="color:white">Mechanical<br>Keyboard</p>
+            <div class="navbar-burger" data-target="navbar">
+              <span style="color:white"></span>
+              <span style="color:white"></span>
+              <span style="color:white"></span>
+            </div>
+          </div>
+          <div class="navbar-menu navBarAnchor" id="navbar" style="margin-left: 20%;">
+            <div class="navbar-start">
+              <div class="navbar-item AboutHover">
+                <a href="products.html">
+                  <p>Keyboards</p>
+                </a>
+
+              </div>
+              <div class="navbar-item has-dropdown is-hoverable AboutHover ">
+                <a href="contact.html" class="navbar-link aPreventDefault">
+                  <p>Contact</p>
+                </a>
+                <ul class="navbar-dropdown is-boxed">
+                  <a href="contact.html" class="navbar-item burgerColor">Form</a>
+                  <a href="contact.html#a" class="navbar-item burgerColor">Info</a>
+
+                </ul>
+              </div>
+              <div class="navbar-item AboutHover">
+                <a href="about.html">
+                  <p>About Us</p>
+                </a>
+
+              </div>
+
+            </div>
+            <div class="navbar-end">
+              <div class="buttons has-addons cart">
+                <a href="cart.html" id="cartAncher" class="navbar-item has-text-white">
+                  <span class="icon is-medium">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </span></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="navbar-item has-dropdown is-hoverable AboutHover " >
-          <a href="contact.html" class="navbar-link aPreventDefault"><p>Contact</p></a>
-          <ul class="navbar-dropdown is-boxed">
-            <a href="contact.html"  class="navbar-item burgerColor">Form</a>
-            <a href="contact.html#a"  class="navbar-item burgerColor">Info</a>
+
+      </nav>
+    </header>
+
+
+    <main class="hero-foot  center is-desktop" style="padding: 2rem;">
+      <main class="hero-foot is-mobile-only" style="max-width:99%;">
+
+        <div class="column abcd" id="localStorageCart">
+          <main class="hero-body center" id="emptyCart">
+
+
+            <div id="grid" style="width: 768px;">
+            
+                <div id="a" class="center-column has-text-centered subtitle">
+                    <h2 class="title is-2 white ">Cart is empty</h2><br>
+                    <p class='content is-medium'>Plese click 'Add to cart' button on desired products</p>
+            
+                </div>
+            
+            </div>
+            
+          </main>
+          <!-- <h2>Cart is empty</h2> -->
+        </div>
+        <!-- <hr class="devider">
+        <div class="column abcd" id="priceCart" style="margin-top:5%">
+
+        </div> -->
+      </main>
+    </main>
+
+    <!-- https://aldi.github.io/bulma-social/ for favicons -->
+    <div class="hero-foot" id="footerBoja">
+      <nav class="tabs">
+        <div class="container center-column white">
+          <ul>
+            <li>
+              <span class="icon is-medium">
+                <i class="fab fa-linkedin"></i>
+                <span>
+            </li>
+            <li>
+              <span class="icon is-medium ">
+                <i class="fab fa-github"></i>
+              </span>
+            </li>
+            <li>
+              <a id="bulma" href="https://bulma.io">
+              </a>
+            </li>
+            <li>
+              <span class="icon is-medium">
+                <i class="fas fa-file-pdf"></i>
+              </span>
+            </li>
+
+            <li>
+              <span class="icon is-medium">
+                <i class="fas fa-user-shield"></i>
+              </span>
+            </li>
 
           </ul>
-                      </div>
-                      <div class="navbar-item AboutHover">
-          <a href="#0"  ><p>About Us</p></a>
-
         </div>
-
-      </div>
-      <div class="navbar-end">
-        <div class="buttons has-addons cart">
-                        <a href="cart.html" id="cartAncher" class="navbar-item has-text-white">
-                          <span class="icon is-medium">
-                              <i class="fa fa-cart-arrow-down"></i>
-                          </span></a>
-                      </div>
-      </div>
+      </nav>
     </div>
-  </div>
-
-</nav>
-  </header>
-
-
-        <main  class="hero-foot  center is-desktop"  style="padding: 2rem;">
-         <main  class="hero-foot is-mobile-only"   style="max-width:99%;">
-         
-            <div class="column abcd" id="localStorageCart">
-              
-              <h2>Cart is empty</h2>
-            </div>
-            <hr class="devider">
-            <div class="column abcd" id="priceCart" style="margin-top:5%">
-              
-            </div>
-           </main>
-          </main>
-
-        <!-- https://aldi.github.io/bulma-social/ for favicons -->
-        <div class="hero-foot" id="footerBoja">
-          <nav class="tabs" >
-              <div class="container center-column white">
-                  <ul>
-                      <li>
-                        <span class="icon is-medium">
-                          <i class="fab fa-linkedin"></i>
-                        <span>
-                      </li>
-                      <li>
-                          <span class="icon is-medium ">
-                            <i class="fab fa-github"></i>
-                          </span>
-                      </li>
-                      <li>
-                          <a id="bulma" href="https://bulma.io">
-                          </a>
-                      </li>
-                      <li>
-                          <span class="icon is-medium">
-                          <i class="fas fa-file-pdf"></i>
-                          </span>
-                      </li>
-
-                      <li>
-                          <span class="icon is-medium">
-                              <i class="fas fa-user-shield"></i>
-                              </span>
-                      </li>
-                     
-                  </ul>
-              </div>
-          </nav>
-      </div>
-    </section>
+  </section>
 
 
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
-    <script  src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <script   type="text/javascript" src="js/script.js"></script>
-  
+  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+
 </body>
 
 </html>

@@ -1,202 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MK International is world renown for its excellent mechanical keyboards"/>
+    <meta name="description" content="MK International is world renown for its excellent mechanical keyboards" />
     <title>MK</title>
-    <!-- <link rel="shortcut icon" href="img/pbt-white.png" type="image/x-icon" /> -->
+    <link rel="shortcut icon" href="img/pbt-white.png" id="ikonica" type="image/x-icon" />
     <link rel="stylesheet" href="css/bulma.css">
-    <link rel="stylesheet" href="css/helpers.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/debug.css"> -->
-    <!-- <link rel="stylesheet" href = "https://www.jsdelivr.com/package/npm/bulma">
-    <link rel="stylesheet" type="text/css" href="bulma-social.min.css">  -->
+    <!-- <link rel="stylesheet" href = "https://www.jsdelivr.com/package/npm/bulma"> -->
+    <link rel="stylesheet" href="/css/helpers.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bulma-social.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    
-
-    
 </head>
 <style>
   .hero {
-      background: url(img/homepageMK.jpg) center/cover;
-    
+    background: url(img/homepageMK.jpg) center/cover;
+
   }
-  
+
   @media (max-width: 900px) {
-      .hero {
-          background: url(img/homepageMK.jpg) center/cover;
-         
-      }
+    .hero {
+      background: url(img/homepageMK.jpg) center/cover;
+
+    }
   }
-  
+
   @media (max-width: 420px) {
-      .hero {
-          background: url(img/homepageMK-small.jpg) center/cover;
-        
-      }
+    .hero {
+      background: url(img/homepageMK-small.jpg) center/cover;
+
+    }
   }
-  
-  </style>
+</style>
+
 <body>
 
-    <!--.hero-->
-   <section class="hero  is-fullheight">
+  <!--.hero-->
+  <section class="hero  is-fullheight">
     <header>
       <nav class="navbar is-warning" id="navBoja" role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <div class="navbar-brand is-tablet ">
-      <a href="index.html"><img src="img/pbt-white.png"  id='mkSwitch' width="90" height="20"></a>
-                   <p class="title is-4 navPBrand" style="color:white"  >Mechanical<br>Keyboard</p>
-      <div class="navbar-burger" data-target="navbar">
-        <span style="color:white"></span>
-        <span style="color:white" ></span>
-        <span style="color:white"></span>
-      </div>
-    </div>
-    <div class="navbar-menu navBarAnchor" id="navbar" style="margin-left: 20%;">
-      <div class="navbar-start">
-        <div class="navbar-item AboutHover" >
-          <a href="products.html" ><p>Keyboards</p></a>
-          
+        <div class="container">
+          <div class="navbar-brand is-tablet ">
+            <a href="index.html"><img src="img/pbt-white.png" id='mkSwitch' width="90" height="20"></a>
+            <p class="title is-4 navPBrand" style="color:white">Mechanical<br>Keyboard</p>
+            <div class="navbar-burger" data-target="navbar">
+              <span style="color:white"></span>
+              <span style="color:white"></span>
+              <span style="color:white"></span>
+            </div>
+          </div>
+          <div class="navbar-menu navBarAnchor" id="navbar" style="margin-left: 20%;">
+            <div class="navbar-start">
+              <div class="navbar-item AboutHover">
+                <a href="products.html">
+                  <p>Keyboards</p>
+                </a>
+
+              </div>
+              <div class="navbar-item has-dropdown is-hoverable AboutHover ">
+                <a href="contact.html" class="navbar-link aPreventDefault">
+                  <p>Contact</p>
+                </a>
+                <ul class="navbar-dropdown is-boxed">
+                  <a href="contact.html" class="navbar-item burgerColor">Form</a>
+                  <a href="contact.html#a" class="navbar-item burgerColor">Info</a>
+
+                </ul>
+              </div>
+              <div class="navbar-item AboutHover">
+                <a href="about.html">
+                  <p>About Us</p>
+                </a>
+
+              </div>
+
+            </div>
+            <div class="navbar-end">
+              <div class="buttons has-addons cart">
+                <a href="cart.html" id="cartAncher" class="navbar-item has-text-white">
+                  <span class="icon is-medium">
+                    <i class="fa fa-cart-arrow-down"></i>
+                  </span></a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="navbar-item has-dropdown is-hoverable AboutHover " >
-          <a href="contact.html" class="navbar-link aPreventDefault"><p>Contact</p></a>
-          <ul class="navbar-dropdown is-boxed">
-            <a href="contact.html"  class="navbar-item burgerColor">Form</a>
-            <a href="contact.html#a"  class="navbar-item burgerColor">Info</a>
+
+      </nav>
+    </header>
+
+
+    <main class="hero-foot  center is-desktop aboutDesktopWidth" style="padding: 2rem;">
+      <main class="hero-foot is-mobile-only" style="max-width:99%;">
+        <div class="center-column has-text-centered subtitle centerBlack" >
+         
+        
+
+           <h2 class="title is-2 white "> About MK</h2>
+
+          <p class="content is-medium aboutText" >Based in Taiwan, MK founded its own brand in 2008 and became a manufacturing company that
+            has strived to provide users with mechanical keyboards of the highest standard since day one. Fast forward
+            to now, we are one of the top mechanical keyboard manufacturers in the world and have built a reputation for
+            providing products that are innovative, performance oriented and solidly built. Our ultimate goal is to have
+            our logo be synonymous with excellence and product satisfaction. Having already established business partnerships in over 30 countries, MK has made a name for ourselves
+            globally. We are eager to continue expanding, giving consumers in every corner of the world a channel to
+            purchase and experience MK products.  Moving forward, we will be aiming to reach even greater heights, tirelessly figuring out ways to come up
+            with products that help users optimize their typing experience. Whether you're working or playing, give your
+            fingers the comfort they deserve.</p>
+        </div>
+        <hr class="devider"
+          style="background: linear-gradient(90deg, rgba(0,212,255,0.6110644086990165) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,0.61) 100%);">
+        <div class="center-column abcd" id="autor" style="margin-top:5%">
+          <h3 class="title center is-3 whiteText">Author</h3><br>
+          <div class="tiles center ">
+            <div class="tile is-15 ">
+           
+              <div class="tile is-parent is-8 ">
+                <article class="tile is-child ">
+
+                  <ul>
+                    <li>
+                      <p class="subtitle is-4 whiteText">Marko Scekic</p>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <p class="subtitle is-4 whiteText">Broj Indeksa: <span class=""> 331/17<span></p>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <p class="subtitle is-4 whiteText">This website is built for school course 'Web Programiranje 2'
+                      </p>
+                    </li>
+                  </ul>
+
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </main>
+
+    <!-- https://aldi.github.io/bulma-social/ for favicons -->
+    <div class="hero-foot" id="footerBoja">
+      <nav class="tabs">
+        <div class="container center-column white">
+          <ul>
+            <li>
+              <span class="icon is-medium">
+                <i class="fab fa-linkedin"></i>
+                <span>
+            </li>
+            <li>
+              <span class="icon is-medium ">
+                <i class="fab fa-github"></i>
+              </span>
+            </li>
+            <li>
+              <a id="bulma" href="https://bulma.io">
+              </a>
+            </li>
+            <li>
+              <span class="icon is-medium">
+                <i class="fas fa-file-pdf"></i>
+              </span>
+            </li>
+
+            <li>
+              <span class="icon is-medium">
+                <i class="fas fa-user-shield"></i>
+              </span>
+            </li>
 
           </ul>
-                      </div>
-                      <div class="navbar-item AboutHover">
-          <a href="#0"  ><p>About Us</p></a>
-
         </div>
-
-      </div>
-      <div class="navbar-end">
-        <div class="buttons has-addons cart">
-                        <a href="cart.html" id="cartAncher" class="navbar-item has-text-white">
-                          <span class="icon is-medium">
-                              <i class="fa fa-cart-arrow-down"></i>
-                          </span></a>
-                      </div>
-      </div>
+      </nav>
     </div>
-  </div>
-
-</nav>
-  </header>
-
-
-        <main  class="hero-foot  center is-desktop aboutDesktopWidth"  style="padding: 2rem;">
-         <main  class="hero-foot is-mobile-only"   style="max-width:99%;">
-         
-            <div class="center-column abcd" id="about">
-                 
-              <h class="title is-2 whiteText"> About MK</h>
-
-        <p class="AboutP1">Based in Taiwan, MK founded its own brand in 2008 and became a manufacturing company that has strived to provide users with mechanical keyboards of the highest standard since day one. Fast forward to now, we are one of the top mechanical keyboard manufacturers in the world and have built a reputation for providing products that are innovative, performance oriented and solidly built. Our ultimate goal is to have our logo be synonymous with excellence and product satisfaction.</p>
-            <hr>
-            <p class="AboutP2">
-            　　Having already established business partnerships in over 30 countries, MK has made a name for ourselves globally. We are eager to continue expanding, giving consumers in every corner of the world a channel to purchase and experience MK products.
-            Moving forward, we will be aiming to reach even greater heights, tirelessly figuring out ways to come up with products that help users optimize their typing experience. Whether you're working or playing, give your fingers the comfort they deserve.</p>
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            </div>
-            <hr class="devider" style="background: linear-gradient(90deg, rgba(0,212,255,0.6110644086990165) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,0.61) 100%);">
-            <div class="center-column abcd" id="autor" style="margin-top:5%">
-              <h3 class="title center is-3 whiteText">Author</h3><br> 
-                <div class="tiles center " >
-                    <div class="tile is-15 ">
-                      <!-- <div class="tile is-parent is-4">
-                        <article class="tile is-child notification is-dark">
-                          <p class="title is-3 center">Author</p>
-                          <figure class="image ">
-                              <img src="${p.pic}">
-                          </figure>
-                      </article>
-                      </div> -->
-                      <div class="tile is-parent is-8 ">
-                      <article class="tile is-child ">
-                    
-                      <ul>
-                         <li> <p class="subtitle is-4 whiteText">Marko Scekic</p> </li>
-                      </ul>
-                      <ul>
-                          <li> <p class="subtitle is-4 whiteText">Broj Indeksa: <span class=""> 331/17<span></p> </li>
-                      </ul>
-                      <ul>
-                         <li> <p class="subtitle is-4 whiteText">This website is built for school course 'Web Programiranje 2'</p> </li>
-                      </ul>
-                      
-                      </article>
-                 </div>
-              </div>
-            </div>
-            </div>
-           </main>
-          </main>
-
-        <!-- https://aldi.github.io/bulma-social/ for favicons -->
-        <div class="hero-foot" id="footerBoja">
-          <nav class="tabs" >
-              <div class="container center-column white">
-                  <ul>
-                      <li>
-                        <span class="icon is-medium">
-                          <i class="fab fa-linkedin"></i>
-                        <span>
-                      </li>
-                      <li>
-                          <span class="icon is-medium ">
-                            <i class="fab fa-github"></i>
-                          </span>
-                      </li>
-                      <li>
-                          <a id="bulma" href="https://bulma.io">
-                          </a>
-                      </li>
-                      <li>
-                          <span class="icon is-medium">
-                          <i class="fas fa-file-pdf"></i>
-                          </span>
-                      </li>
-
-                      <li>
-                          <span class="icon is-medium">
-                              <i class="fas fa-user-shield"></i>
-                              </span>
-                      </li>
-                     
-                  </ul>
-              </div>
-          </nav>
-      </div>
-    </section>
+  </section>
 
 
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
-    <script  src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <script   type="text/javascript" src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>

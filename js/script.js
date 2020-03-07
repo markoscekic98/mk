@@ -25,18 +25,12 @@ window.onload = () => {
   document.querySelector('.navbar-burger').addEventListener('click', () => {
     document.getElementById('navbar').style.backgroundColor = 'rgba(223, 223, 223, 0.4)'; //'rgba(5, 5, 5, 0.4)';
     $('.burgerColor').css('color', '#272727');
-    $('.AboutHover p').css('color','white');
+    $('.AboutHover p').css('color', 'white');
   });
   let count = 0;
 
-
-  // datumIspis.addEventListener('click', () => console.log(`Clicked ${count++} times`));
-
-
   function datumFun() {
     let datum = new Date();
-    // var datCeo = `${datum.getDate()}.${datum.getMonth()+1}.${datum.getFullYear()}`;
-    // document.getElementById('datum').textContent = datCeo;
     var satnica = datum.getHours();
     var bulmaLogo = `<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">`;
     var keycapLogo = `<link rel="shortcut icon" href="img/pbt-white.png" type="image/x-icon" />`;
@@ -44,8 +38,7 @@ window.onload = () => {
       bulmaLogo = `<img src="https://bulma.io/images/made-with-bulma--dark.png" alt="Made with Bulma" width="128" height="24">`;
     }
     document.querySelector('#bulma').innerHTML = bulmaLogo;
-
-  }
+    }
 
 
   if (window.location.pathname == '/products.html' || window.location.pathname == '/Products.html') {
@@ -54,10 +47,7 @@ window.onload = () => {
       method: "GET",
       dataType: "json",
       success: function (products) {
-        // product(products);
-        //   } //success
-        // }); //ajax
-        // function product(products) {
+      
         var keyboards = products;
         funKeyboardsHtmlDynamic(keyboards);
         addEventCart();
@@ -65,14 +55,14 @@ window.onload = () => {
         //////////// sort by bigger keyboards first\\\\\\\\\\\\\\\\\\\\\\\
         document.getElementById('bigKeyboardFirst').addEventListener('click', () => {
           keyboards.sort((a, b) => b.numKeys - a.numKeys);
-          console.log("velike");
+   
           funKeyboardsHtmlDynamic(keyboards);
           addEventCart();
         }); //EventListener big keyboards
         //////////////// small keyboards first \\\\\\\\\\\\\\\\\\\\\\\\
         document.getElementById('smallKeyboardFirst').addEventListener('click', () => {
           keyboards.sort((a, b) => a.numKeys - b.numKeys);
-          console.log("male");
+      
           funKeyboardsHtmlDynamic(keyboards);
           addEventCart();
         }); //eventListner small keyboards
@@ -99,7 +89,7 @@ window.onload = () => {
           var dataLsCart = [];
           document.querySelectorAll('.korpa').forEach(shoppingCart => {
             shoppingCart.addEventListener('click', eventCartButton => {
-              console.log(eventCartButton);
+        
               let addToCartAnimation = setTimeout(loadAnim, 0);
 
               function loadAnim() {
@@ -114,13 +104,12 @@ window.onload = () => {
               }, 700);
 
               dataLsCart.push(shoppingCart.value);
-              document.getElementById('cartAncher').innerHTML= `<span class="icon is-medium">
+              document.getElementById('cartAncher').innerHTML = `<span class="icon is-medium">
               <i class="fa fa-cart-arrow-down"></i>
           </span><p class="korpaBroj">${dataLsCart.length}</p>`;
-              console.log(dataLsCart.length);
+    
               localStorage.setItem("Product", JSON.stringify(dataLsCart));
-              //console.log(dataLsCart);
-            });
+           });
           });
         } //fun addeventCart
 
@@ -195,14 +184,13 @@ window.onload = () => {
     });
 
     function cart(data) { //cros refference of all producsts there are in JSON file with those ID that have been selected
-      //console.log(data); //27 products
+   
       let getLSproducts = localStorage.getItem("Product");
       var dataLS = JSON.parse(getLSproducts);
-      document.getElementById('cartAncher').innerHTML= `<span class="icon is-medium">
+      document.getElementById('cartAncher').innerHTML = `<span class="icon is-medium">
               <i class="fa fa-cart-arrow-down"></i>
           </span><p class="korpaBroj">${dataLS.length}</p>`;
-      // console.log(dataLS);
-      // console.log(dataLS[0]);
+   
       var producstsInCart = [];
       var cartHtml = '<table  class="center">';
       var price = 0;
@@ -221,59 +209,54 @@ window.onload = () => {
         }
 
         cartHtml += `</table><div class="control center-column">
-      <button class="button" id="clearLSData" >Clear All</button></div>`;
+      </div>
+      <div class="column abcd" id="priceCart">
+       Price for all products combined is: $${price},   number of chosen products: ${indexData}
+      </div><hr class="devider"><div class="control center-column"><button class="button" id="clearLSData" >Clear All</button></div>`;
         document.getElementById('localStorageCart').innerHTML = cartHtml;
-        document.getElementById('priceCart').innerHTML = `Price for all products combined is: $${price},   number of chosen products: ${indexData}`;
-      }
-      console.log(producstsInCart);
+       // document.getElementById('priceCart').innerHTML = `Price for all products combined is: $${price},   number of chosen products: ${indexData}`;
+      };
+
       try {
         const cartBorder = $('tr');
         let len = cartBorder.length - 1;
-        //console.log(len);
+
         cartBorder[len].style.border = "0px solid white";
-      } catch {
-        console.log("no data");
-      }
+      } catch {}
       try {
         document.querySelector('#clearLSData').addEventListener('click', () => {
-          console.log("obrisanoListener");
           localStorage.clear();
-          document.getElementById('localStorageCart').innerHTML = '';
-          document.getElementById('priceCart').innerHTML = '';
+          document.getElementById('localStorageCart').innerHTML = `<main class="hero-body center" id="emptyCart">
+        <div id="grid" style="width: 768px;">
+          <div id="a" class="center-column has-text-centered subtitle sumPrice">
+                  <h2 class="title is-2 white ">Cart is empty</h2><br>
+                  <p class='content is-medium'>Plese click 'Add to cart' button on desired products</p>
+          </div> </div>  </main>`;
         });
-      } catch {
-        console.log("No data to clear");
-      }
-    }
-    /////// brisanje podataka iz korpe\\\\\\
-    // try{
-    //const clearLSDataButton =  
-
-
-  }
+      } catch{ }
+    };///for
+  };//if cart.html
   if (window.location.pathname == '/contact.html' || window.location.pathname == '/Contact.html') {
     $.ajax({
       url: 'https://api.ipify.org?format=json',
       method: "get",
       dataType: "json",
-       timeout: 2100,
+      timeout: 1100,
       complete: data => {
-        try{
-        let l = JSON.stringify(data).split(`:\"`);
-        let lo = l[2].split(`\"`);
-        document.cookie = `IP=${lo[0]}`;
-        }
-        catch{}
+        try {
+          let l = JSON.stringify(data).split(`:\"`);
+          let lo = l[2].split(`\"`);
+          document.cookie = `IP=${lo[0]}`;
+        } catch {}
       },
       error: function (error, xhr, status) {
-        swal("Please disable adblocker","In order to login, please disable adblocker","error");
+        swal("Please disable adblocker", "In order to login, please disable adblocker", "error");
       }
     });
     document.querySelector('#contactForm').reset(); /// na onLoad stranice se brisu podaci ranije upisano iz forme;
     document.querySelector('#submitInfo').addEventListener('click', pd => {
       pd.preventDefault();
-      console.log("pritisnuto")
-  
+
 
       var data = [];
       var validation = true;
@@ -311,16 +294,15 @@ window.onload = () => {
       //////////////   z  I  P   \\\\\\\\\\\\\\\\\\ 
 
       var zip = document.querySelector('#zip').value.trim();
-      console.log(zip);
       var zipError = document.querySelector('#zipError');
-      if (zip <10000 || zip >100000) {
+      if (zip < 10000 || zip > 100000) {
         zipError.innerHTML = `Please enter correct zip code (10 000 - 99 999)`;
         validation = false;
       }
-      
+
       data.push(zip);
       document.cookie = `Zip Code = ${zip}`;
-      
+
       /////////////////  E M A I L \\\\\\\\\\\\\\\
 
       var em = document.querySelector('#email').value.trim();
@@ -349,10 +331,10 @@ window.onload = () => {
       document.cookie = `Password = ${enigma}`;
 
       if (data.length > 3 && validation) {
-        swal("Success!","Contact information is sent to our server for further validation","success");
+        swal("Success!", "Contact information is sent to our server for further validation", "success");
       }
     });
-   
+
   } //if contact
 
 
