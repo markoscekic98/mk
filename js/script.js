@@ -131,18 +131,18 @@ window.onload = () => {
                 </div>
                 <div class="tile is-parent is-4">
                 <article class="tile is-child notification productText">
-                <h3 class="title center is-3" style="color:black;">Specs</h3><br>
+                <h3 class="title center is-3" style="color:white;">Specs</h3><br>
                 <ul>
-                   <li> <p class="subtitle is-4">Name: <span class="productTextSpan">${p.name}<span></p> </li>
+                   <li> <p class="subtitle is-4"  style="color:white;">Name: <span class="productTextSpan">${p.name}<span></p> </li>
                 </ul>
                 <ul>
-                    <li> <p class="subtitle is-4">Color: <span class="productTextSpan"> ${p.color}<span></p> </li>
+                    <li> <p class="subtitle is-4"  style="color:white;">Color: <span class="productTextSpan" > ${p.color}<span></p> </li>
                 </ul>
                 <ul>
-                   <li> <p class="subtitle is-4">Number of keys: <span class="productTextSpan"> ${p.numKeys}<span></p> </li>
+                   <li> <p class="subtitle is-4"  style="color:white;">Number of keys: <span class="productTextSpan "> ${p.numKeys}<span></p> </li>
                 </ul>
                 <ul>
-                   <li> <p class="subtitle is-4">Price: <span class="productTextSpan"> $${p.numKeys}<span></p> </li>
+                   <li> <p class="subtitle is-4"  style="color:white;">Price: <span class="productTextSpan"> $${p.numKeys}<span></p> </li>
                 </ul>
                 <br>
                 <button class="button is-dark korpa" id="idKorpa" value=${p.id} >Add to cart</button>
@@ -242,7 +242,7 @@ window.onload = () => {
       url: 'https://api.ipify.org?format=json',
       method: "get",
       dataType: "json",
-      timeout: 1100,
+      timeout: 3100,
       complete: data => {
         try {
           let l = JSON.stringify(data).split(`:\"`);

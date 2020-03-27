@@ -7,6 +7,28 @@
 .keyboardPositioning {
     margin-left: 12%;
 }
+@media (max-width: 1500px) {
+    .hero {
+        background: url(img/homepageMK.jpg) center/cover;
+
+    }
+
+    .keyboardPositioning {
+        margin-left: 12%;
+    }
+    .gerthr{
+        margin: 0 auto;
+        max-width: 70%;
+       
+    }
+    #deviderAuthor{
+        max-width: 70%;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+   
+
+}
 
 @media (max-width: 900px) {
     .hero {
@@ -17,10 +39,17 @@
     .keyboardPositioning {
         margin-left: 12%;
     }
-
-    .aboutText {
-        width: 80%;
+    .gerthr{
+        margin: 0 auto;
+        max-width: 80%;
+       
     }
+    #deviderAuthor{
+        max-width: 80%;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+   
 
 }
 
@@ -37,6 +66,16 @@
     .aboutText {
         width: 95%;
     }
+    .gerthr{
+        margin: 0 auto;
+        max-width: 97%;
+
+    }
+    #deviderAuthor{
+        max-width: 97%;
+        margin: 0 auto;
+        margin-top: 4%;
+    }
 
 }
 
@@ -52,6 +91,14 @@
 
     .aboutText {
         width: 100%;
+    }
+    .gerthr{
+        width: 100%;
+    }
+    #deviderAuthor{
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 3%;
     }
 
 }
@@ -105,7 +152,7 @@
     background-color: #ffd83d;
 }
 
-*/ #navBoja {
+#navBoja {
     background: rgb(0, 0, 0);
     background: -moz-linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 25%);
     background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 25%);
@@ -163,6 +210,7 @@ h2,
 #priceCart  {
      color: white;
 }
+
 #clearLSData{
     margin-top: 1rem;
 }
@@ -179,16 +227,10 @@ h2,
     margin: 0.5rem;
 
 }
-
 table tr {
     border-bottom: 1px solid white;
 }
 
-/* .verticalLine{
-    border-right:3px solid white;
-    margin-left: 1rem;
-    margin-right: 1rem;
-} */
 .whiteText {
     color: white;
 }
@@ -198,7 +240,7 @@ table tr {
 }
 
 .productText {
-    background: linear-gradient(0deg, rgba(243, 245, 245, 0.02) 0%, rgb(250, 250, 250, 0.9) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.062) 0%, rgba(0, 0, 0, 0.9) 100%);
     /* background-color: rgba(251, 248, 242, 0.561); */
 }
 
@@ -206,12 +248,8 @@ table tr {
     color: rgb(0, 0, 0);
 }
 
-.productTextH3 {
-    color: rgb(236, 10, 10);
-}
-
 .productTextSpan {
-    color: rgba(2, 21, 51, 0.965);
+    color: rgb(241, 241, 182);
     font-size: larger;
 }
 
@@ -230,4 +268,7 @@ table tr {
 
 .aboutText {
     max-width: 70%;
+}
+.fafaIcons{
+    color:white !important;
 }
